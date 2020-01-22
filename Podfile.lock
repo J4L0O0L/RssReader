@@ -1,0 +1,65 @@
+PODS:
+  - Alamofire (4.9.1)
+  - LNRSimpleNotifications (0.9.0)
+  - NVActivityIndicatorView (4.8.0):
+    - NVActivityIndicatorView/Presenter (= 4.8.0)
+  - NVActivityIndicatorView/Presenter (4.8.0)
+  - Realm (4.3.1):
+    - Realm/Headers (= 4.3.1)
+  - Realm/Headers (4.3.1)
+  - RealmSwift (4.3.1):
+    - Realm (= 4.3.1)
+  - RxAlamofire (4.4.1):
+    - RxAlamofire/Core (= 4.4.1)
+  - RxAlamofire/Core (4.4.1):
+    - Alamofire (~> 4.8)
+    - RxSwift (~> 4.5)
+  - RxCocoa (4.5.0):
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxSwift (4.5.0)
+  - SnapKit (5.0.1)
+  - Swinject (2.7.1)
+  - SWXMLHash (5.0.1)
+
+DEPENDENCIES:
+  - Alamofire
+  - LNRSimpleNotifications
+  - NVActivityIndicatorView
+  - RealmSwift
+  - RxAlamofire
+  - RxCocoa (~> 4)
+  - RxSwift (~> 4)
+  - SnapKit
+  - Swinject
+  - SWXMLHash
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - LNRSimpleNotifications
+    - NVActivityIndicatorView
+    - Realm
+    - RealmSwift
+    - RxAlamofire
+    - RxCocoa
+    - RxSwift
+    - SnapKit
+    - Swinject
+    - SWXMLHash
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  LNRSimpleNotifications: 5c0d5e5eac89a7d57bb4c7cbd71e6fde761a116a
+  NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
+  Realm: 31dc40934081ef740f60feedc46d88473cbfeb40
+  RealmSwift: b5199e9a41f67b99f51acf6874a6166f5fbe93d1
+  RxAlamofire: ed65f451f5a9a59419b0b9e705043dc01410edd9
+  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
+  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
+  SWXMLHash: 9cc0c2e4807926c74377724aa8722ee5707a0485
+
+PODFILE CHECKSUM: ff1d4b6faf0897c1335bbc4fb8f910f0a49587b7
+
+COCOAPODS: 1.8.4
