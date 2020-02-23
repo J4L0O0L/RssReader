@@ -68,21 +68,14 @@ class BookmarkDAL
         
     }
     
-    func insertBookmark(feed: FeedItem, completion: dalCompletion?) {
+    func insertBookmark(model: RssModelProtocol, completion: dalCompletion?) {
        
         try! realm.safeWrite {
             let bookmark = Bookmark()
                
-            bookmark.title = feed.title
-            bookmark.link = feed.link
-            bookmark.des = feed.description
-            bookmark.pubDate = feed.pubDate
-            
-            
-//            bookmark.category = List<String>()
-//            bookmark.category?.append(objectsIn: feed.category)
-//            
-            
+            bookmark.title = model.title
+            bookmark.link = model.link
+            bookmark.des = model.description
             
             realm.add(bookmark)
             completion?()

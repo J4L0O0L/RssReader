@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol CellBehavior: UpdateCellBehvaior {
+protocol CellBehavior {
     
     func getModel() -> Any?
     func getReuseIdentifier() -> String

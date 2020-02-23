@@ -13,8 +13,9 @@ import RxSwift
 
 final class MainController: UIViewController {
     
+    
     // MARK: - Init and deinit
-    init(_ viewModel: MainControllerViewModelType) {
+    init(_ viewModel: MainViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -26,8 +27,10 @@ final class MainController: UIViewController {
     }
     
     // MARK: - Properties
-    let viewModel: MainControllerViewModelType
+    let viewModel: MainViewModelProtocol
     let disposeBag = DisposeBag()
+    
+    var tableData: [CellBehavior]?
     
     // MARK: - UI
     let tableView = UITableView()
@@ -43,6 +46,9 @@ final class MainController: UIViewController {
         
         setupUI()
         setupBindings()
+        
+        viewModel.attachView(self)
+      
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,7 +58,7 @@ final class MainController: UIViewController {
     
     // MARK: - Functions
     private func setupTableView() {
-        tableView.register(RssCell.self, forCellReuseIdentifier: "RssCell")
+        //tableView.register(RssCell.self, forCellReuseIdentifier: "CellId")
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.top.equalTo(modeSelectionSegment.snp.bottom).offset(8)
@@ -85,7 +91,6 @@ final class MainController: UIViewController {
     }
     
     private func setupBindings() {
-        setupTableViewBindings()
         setupBookmarkBindings()
         setupModeSelectionSegmentBindings()
     }
@@ -105,27 +110,36 @@ final class MainController: UIViewController {
             .subscribe(viewModel.modeSelectedSubject)
             .disposed(by: disposeBag)
     }
-    
-    private func setupTableViewBindings() {
-        
-        viewModel.cellViewModelsDriver
-            .drive(tableView.rx.items) { tableView, row, viewModel in
-                let cell = tableView.dequeueReusableCell(withIdentifier: "RssCell") as! RssCell
-                cell.configureWith(self.viewModel , model: viewModel, index: row)
-                return cell
-        }.disposed(by: disposeBag)
-        
-        tableView.rx
-            .modelSelected(RssCellViewModelType.self)
-            .do(onNext: { _ in self.tableView.indexPathsForSelectedRows?.forEach { self.tableView.deselectRow(at: $0, animated: true) }})
-            .subscribe(onNext: {self.tableCellSelected($0)})
-            .disposed(by: disposeBag)
-        
-        
-    }
-    
-    private func tableCellSelected(_ viewModel: RssCellViewModelType){
-        navigationController?.pushViewController(DetailController(DetailControllerViewModel(viewModel)), animated: true)
-    }
 }
 
+extension MainController: MainViewProtocol{
+    func setTable(_ data: [CellBehavior]) {
+        data.forEach({ tableView.register(RssCell.self, forCellReuseIdentifier: $0.getReuseIdentifier())})
+        tableData = data
+//        let dataSource = ListDataSource(models: data)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.reloadData()
+    }
+    
+}
+
+extension MainController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tableData?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: tableData?[indexPath.row].getReuseIdentifier() ?? "") as? RssCell
+        if let dataModel =  tableData?[indexPath.row] {
+               cell?.updateCell(item: dataModel)
+        }
+     
+        return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        navigationController?.pushViewController(DetailController(tableData![indexPath.row] as! RssViewModelProtocol), animated: true)
+    }
+}

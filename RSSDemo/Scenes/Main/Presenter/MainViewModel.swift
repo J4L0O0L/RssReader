@@ -10,35 +10,13 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-protocol MainControllerViewModelType: class {
-    var modeSelectedSubject: PublishSubject<FetchTarget> { get }
-    var cellSelectedSubject: PublishSubject<RssCellViewModelType> { get }
-    var cellViewModelsDriver: Driver<[RssCellViewModel]> { get }
-    var bookmarkSelectedSubject: PublishSubject<(IndexPath,RssCellViewModelType)> { get }
-    var cellUpdatedDriver: PublishSubject<(IndexPath, RssCellViewModelType)> { get }
-} 
-
-final class MainControllerViewModel: BaseViewModel, MainControllerViewModelType {
-    
+final class MainViewModel: BaseViewModel, MainViewModelProtocol {
+   
     // MARK: - Init and deinit
-    init(_ networkservice: NetworkService) {
+    init( networkservice: NetworkService) {
         super.init()
-        service = networkservice
+        repository = MainRepository(networkservice)
         
-        modeSelectedSubject
-            .bind(onNext: targetSelected)
-            .disposed(by: bag)
-         
-        
-        cellSelectedSubject
-            .bind(onNext: cellSelected)
-            .disposed(by: bag)
-        
-        bookmarkSelectedSubject
-            .bind(onNext: { (index,data) in
-                data.isBookmarked ? self.deleteBookmarked(index: index, viewModel: data) : self.setBookmarked(index: index, viewModel: data)
-                })
-            .disposed(by: bag)
     }
     
     deinit {
@@ -47,18 +25,35 @@ final class MainControllerViewModel: BaseViewModel, MainControllerViewModelType 
     
     
     // MARK: - Properties
+    weak private var view: MainViewProtocol?
+    private var repository: MainRepositoryProtocol?
     private var service : NetworkService?
     private let dataSubject = BehaviorSubject<[RssCellViewModel]>(value: [])
     
     var modeSelectedSubject = PublishSubject<FetchTarget>()
-    var bookmarkSelectedSubject = PublishSubject<(IndexPath, RssCellViewModelType)>()
-    var cellSelectedSubject = PublishSubject<RssCellViewModelType>()
-    var cellUpdatedDriver =  PublishSubject<(IndexPath, RssCellViewModelType)>()
+    var bookmarkSelectedSubject = PublishSubject<(IndexPath, RssViewModelProtocol)>()
+    var cellSelectedSubject = PublishSubject<RssViewModelProtocol>()
+    var cellUpdatedDriver =  PublishSubject<(IndexPath, RssViewModelProtocol)>()
     
     var cellViewModelsDriver: Driver<[RssCellViewModel]> {
         return dataSubject.do(onNext: { viewModel in
             self.isLoading = false
         }).asDriver(onErrorJustReturn: [])
+    }
+    
+    func attachView(_ vc: MainViewProtocol){
+        self.view = vc
+        setBinding()
+        
+        modeSelectedSubject.onNext(.unitedKingdom)
+    }
+    
+    func setBinding(){
+        modeSelectedSubject
+            .bind(to: repository!.getFeed)
+            .map({$0.map({FeedCellViewModel(parent: self, model: $0)})})
+            .bind(onNext: view!.setTable)
+            .disposed(by: bag)
     }
     
     // MARK: - Functions
@@ -81,28 +76,29 @@ final class MainControllerViewModel: BaseViewModel, MainControllerViewModelType 
         }
     }
     
-    func cellSelected(_ viewModel: RssCellViewModelType){
-        
+    func bookmarkRssCell(model: RssViewModelProtocol) {
+        let index = findIndex(for: model)
+        model.isBookmarked ? BookmarkDAL.shared.removeBy(title: model.title,complete: realmCompletion) :  BookmarkDAL.shared.insertBookmark(model: model,completion: realmCompletion)
     }
     
-    func setBookmarked(index: IndexPath, viewModel: RssCellViewModelType){
+    private func findIndex(for model: RssViewModelProtocol) -> IndexPath {
+        return IndexPath(row: 0, section: 0)
+    }
+    
+    
+    func setBookmarked(index: IndexPath, viewModel: RssViewModelProtocol){
         let feed = FeedItem(title: viewModel.title, link: viewModel.link, description: "", pubDate: "", category: [])
-        BookmarkDAL.shared.insertBookmark(feed: feed,completion: realmCompletion)
+        BookmarkDAL.shared.insertBookmark(model: feed,completion: realmCompletion)
     }
     
     
-    func deleteBookmarked(index: IndexPath, viewModel: RssCellViewModelType){
+    func deleteBookmarked(index: IndexPath, viewModel: RssViewModelProtocol){
         BookmarkDAL.shared.removeBy(title: viewModel.title,complete: realmCompletion)
     }
     
     func realmCompletion(){
-        
-        do {
-            let data = try self.dataSubject.value()
-            self.dataSubject.onNext(data)
-        }catch {
-            
-        }
+       
+        //view?.setTable(<#T##data: [CellBehavior]##[CellBehavior]#>)
         
         Notifire.shared().showMessage(message: Message.bookmarkSavedSuccessfully.rawValue, type: .success)
     }

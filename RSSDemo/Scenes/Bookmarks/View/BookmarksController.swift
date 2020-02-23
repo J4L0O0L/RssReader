@@ -76,7 +76,7 @@ final class BookmarksController: UIViewController {
     }
     
     private func tableCellSelected(_ viewModel: BookmarkCellViewModelProtocol){
-        navigationController?.pushViewController(DetailController(DetailControllerViewModel(RssCellViewModel(FeedItem(title: viewModel.title, link: viewModel.link, description: viewModel.description, pubDate: "", category: [])))), animated: true)
+//        navigationController?.pushViewController(DetailController(RssCellViewModel(FeedItem(title: viewModel.title, link: viewModel.link, description: viewModel.description, pubDate: "", category: []))), animated: true)
     }
 }
 

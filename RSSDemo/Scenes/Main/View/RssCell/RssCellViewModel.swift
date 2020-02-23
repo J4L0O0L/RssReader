@@ -7,14 +7,19 @@
 
 import Foundation
 
-protocol RssCellViewModelType {
-    var title: String  { get }
-    var link: String  { get }
-    var description: String  { get }
-    var isBookmarked: Bool { get }
-}
-
-struct RssCellViewModel: RssCellViewModelType {
+struct RssCellViewModel: RssViewModelProtocol {
+    func getModel() -> Any? {
+         return ""
+    }
+    
+    func getReuseIdentifier() -> String {
+         return ""
+    }
+    
+    func nibName() -> String {
+        return ""
+    }
+    
     
     init(){
         self.channel = FeedItem(title: "", link: "", description: "", pubDate: "", category: [])

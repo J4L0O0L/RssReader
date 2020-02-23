@@ -9,5 +9,5 @@
 import Foundation
 
 protocol NavigationDelegate: class {
-  func RssCellSelected(_ viewModel: RssCellViewModelType) 
+  func RssCellSelected(_ viewModel: RssViewModelProtocol) 
 }

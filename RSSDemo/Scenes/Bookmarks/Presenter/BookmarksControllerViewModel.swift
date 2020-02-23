@@ -23,7 +23,7 @@ final class BookmarksControllerViewModel: BaseViewModel, BookmarksControllerView
         cellSelectedSubject
             .bind(onNext: cellSelected)
             .disposed(by: bag)
-
+        
     }
     
     deinit {

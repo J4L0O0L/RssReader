@@ -9,25 +9,19 @@
 import UIKit
 import RxSwift
 
-class RssCell: UITableViewCell {
-    
+class RssCell: UITableViewCell, UpdateCellBehvaior {
+
     private let titleLabel = UILabel()
     private let badgeBtn = UIButton(type: .custom)
     
-    private var viewModel : RssCellViewModelType?
-    private var tapDisposable: Disposable?
-    
-    var bookmarkTap : Observable<RssCellViewModelType>{
-        return self.badgeBtn.rx.tap.asObservable().map { _ in
-            return self.viewModel!
-        }
-    }
+    private var viewModel : RssCellViewModelProtocol?
     
     override func layoutSubviews() {
         super.layoutSubviews()
         guard contentView.subviews.isEmpty else {
             return
         }
+        
         setupUI()
         layoutUI()
     }
@@ -37,6 +31,7 @@ class RssCell: UITableViewCell {
         titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
         titleLabel.numberOfLines = 1
         
+        badgeBtn.rx.tap.subscribe(onNext: { self.viewModel?.bookmarkCell() }).disposed(by: DisposeBag())
     }
     
     private func layoutUI() {
@@ -59,13 +54,13 @@ class RssCell: UITableViewCell {
         
     }
     
-    func configureWith(_ viewModel: MainControllerViewModelType ,model: RssCellViewModelType, index: Int) {
-        tapDisposable?.dispose()
-        titleLabel.text = model.title
-        badgeBtn.setImage(UIImage(named: model.isBookmarked ? "badge-fill" : "badge"), for: .normal)
-        tapDisposable = bookmarkTap.map { (IndexPath(row: index, section: 0),$0)}
-                           .subscribe(viewModel.bookmarkSelectedSubject)
-        self.viewModel = model
-        layoutIfNeeded()
+    func updateCell(item: CellBehavior) {
+        if let model = item.getModel() as? RssViewModelProtocol {
+            titleLabel.text = model.title
+            badgeBtn.setImage(UIImage(named: model.isBookmarked ? "badge-fill" : "badge"), for: .normal)
+            //layoutIfNeeded()
+        }
+       
     }
+    
 }
