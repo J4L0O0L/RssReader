@@ -17,19 +17,19 @@ class MainRepository: MainRepositoryProtocol {
     
     private var service : NetworkService?
     
-    public func getFeed(_ target: Observable<FetchTarget>) -> Observable<[RssViewModelProtocol]> {
-        return target.flatMap { fetchTarget -> Observable<[RssViewModelProtocol]> in
+    public func getFeed(_ target: Observable<FetchTarget>) -> Observable<[FeedItem]> {
+        return target.flatMap { fetchTarget -> Observable<[FeedItem]> in
             switch fetchTarget {
             case .unitedSates:
                 return self.service?
                     .loadXml(SingleXmlResource<Feed>(action: RssAction.unitedStates))
-                    .map { $0.rss.channel.items.map(RssCellViewModel.init) } ?? Observable.just([])
+                    .map { $0.rss.channel.items } ?? Observable.just([])
                 
                 
             case .unitedKingdom:
                 return self.service?
                     .loadXml(SingleXmlResource<Feed>(action: RssAction.unitedKingdom))
-                    .map { $0.rss.channel.items.map(RssCellViewModel.init) }
+                    .map { $0.rss.channel.items }
                     ?? Observable.just([])
             }
         }

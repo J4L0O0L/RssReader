@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 
 class RssCell: UITableViewCell, UpdateCellBehvaior {
-
+    
     private let titleLabel = UILabel()
     private let badgeBtn = UIButton(type: .custom)
     
@@ -31,7 +31,7 @@ class RssCell: UITableViewCell, UpdateCellBehvaior {
         titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
         titleLabel.numberOfLines = 1
         
-        badgeBtn.rx.tap.subscribe(onNext: { self.viewModel?.bookmarkCell() }).disposed(by: DisposeBag())
+        badgeBtn.addTarget(self, action: #selector(bookmarkTapped), for: .touchUpInside)
     }
     
     private func layoutUI() {
@@ -54,13 +54,18 @@ class RssCell: UITableViewCell, UpdateCellBehvaior {
         
     }
     
+    @objc func bookmarkTapped(_ target: Any){
+        viewModel?.bookmarkCell()
+    }
+    
     func updateCell(item: CellBehavior) {
-        if let model = item.getModel() as? RssViewModelProtocol {
+        if let model = item as? RssCellViewModelProtocol {
+            self.viewModel = model
             titleLabel.text = model.title
             badgeBtn.setImage(UIImage(named: model.isBookmarked ? "badge-fill" : "badge"), for: .normal)
             //layoutIfNeeded()
         }
-       
+        
     }
     
 }

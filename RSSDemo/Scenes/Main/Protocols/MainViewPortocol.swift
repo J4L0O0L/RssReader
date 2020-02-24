@@ -11,4 +11,5 @@ import RxSwift
 
 protocol MainViewProtocol: class {
     func setTable(_ data: [CellBehavior])
+    func reloadTable()
 }

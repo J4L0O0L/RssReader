@@ -12,6 +12,7 @@ import RxSwift
 import RxCocoa
 
 typealias dalCompletion = () -> Void
+typealias dalCompletionWith = (_ model: RssModelProtocol) -> Void
 
 class BookmarkDAL
 {

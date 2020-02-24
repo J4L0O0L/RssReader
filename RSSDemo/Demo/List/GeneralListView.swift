@@ -21,7 +21,6 @@ class GeneralListView: UIView {
         tableView.dataSource = dataSource
     }
     
-    
     func registerCells(items: [CellBehavior]) {
         items.forEach({ tableView.register(UINib.init(nibName: $0.nibName(), bundle: nil), forCellReuseIdentifier: $0.getReuseIdentifier())})
     }

@@ -28,7 +28,6 @@ class BookmarkCell: UITableViewCell {
         //Label setup
         titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
         titleLabel.numberOfLines = 1
-        
     }
     
     private func layoutUI() {
@@ -40,8 +39,6 @@ class BookmarkCell: UITableViewCell {
             make.trailing.equalToSuperview().offset(-50)
             make.top.equalToSuperview().offset(15)
         }
-        
-        
     }
     
     func configureWith(_ viewModel: BookmarkCellViewModelProtocol, index: Int) {

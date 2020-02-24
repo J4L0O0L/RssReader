@@ -32,6 +32,8 @@ final class MainController: UIViewController {
     
     var tableData: [CellBehavior]?
     
+    var dataSource: ListDataSource?
+    
     // MARK: - UI
     let tableView = UITableView()
     let modeSelectionSegment = UISegmentedControl(items: ["United States", "United Kingdom"])
@@ -115,10 +117,14 @@ final class MainController: UIViewController {
 extension MainController: MainViewProtocol{
     func setTable(_ data: [CellBehavior]) {
         data.forEach({ tableView.register(RssCell.self, forCellReuseIdentifier: $0.getReuseIdentifier())})
-        tableData = data
-//        let dataSource = ListDataSource(models: data)
-        tableView.delegate = self
-        tableView.dataSource = self
+        //tableData = data
+        dataSource = ListDataSource(models: data, delegate: self)
+        tableView.delegate = dataSource
+        tableView.dataSource = dataSource
+        tableView.reloadData()
+    }
+    
+    func reloadTable(){
         tableView.reloadData()
     }
     
@@ -140,6 +146,14 @@ extension MainController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        navigationController?.pushViewController(DetailController(tableData![indexPath.row] as! RssViewModelProtocol), animated: true)
+       
     }
+}
+
+extension MainController: CellSelectDelegate {
+    func cellSelected(model: Any) {
+         navigationController?.pushViewController(DetailController(model as! RssViewModelProtocol), animated: true)
+    }
+    
+    
 }

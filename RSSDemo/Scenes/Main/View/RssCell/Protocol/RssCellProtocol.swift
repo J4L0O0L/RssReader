@@ -11,3 +11,4 @@ import Foundation
 protocol RssCellViewModelProtocol: RssViewModelProtocol {
     func bookmarkCell()
 }
+

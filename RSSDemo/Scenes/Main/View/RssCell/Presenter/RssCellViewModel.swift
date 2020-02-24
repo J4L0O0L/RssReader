@@ -8,17 +8,17 @@
 
 import Foundation
 
-struct FeedCellViewModel: RssCellViewModelProtocol {
+struct RssCellViewModel: RssCellViewModelProtocol {
     
-    weak private var parentVM: MainViewModelProtocol?
-    private let model: RssViewModelProtocol
+    private let model: RssModelProtocol
+    private let delegate : RssCellDelegate
 
-    init(parent: MainViewModelProtocol, model: RssViewModelProtocol) {
-        self.parentVM = parent
+    init(delegate: RssCellDelegate, model: RssModelProtocol) {
+        self.delegate = delegate
         self.model = model
     }
     
-    var isBookmarked: Bool{
+    var isBookmarked: Bool {
         get{ return BookmarkDAL.shared.fetchBy(title: model.title) != nil}
     }
     
@@ -47,7 +47,7 @@ struct FeedCellViewModel: RssCellViewModelProtocol {
     }
     
     func bookmarkCell() {
-        parentVM?.bookmarkRssCell(model: model)
+        delegate.bookmarkTapped(model: self)
     }
     
     

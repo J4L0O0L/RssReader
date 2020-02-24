@@ -40,10 +40,11 @@
 		AC5D98FB24025FF100BF6949 /* MainRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98FA24025FF100BF6949 /* MainRepositoryProtocol.swift */; };
 		AC5D990224029D5A00BF6949 /* ListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98CF2401364300BF6949 /* ListDataSource.swift */; };
 		AC5D990324029D5A00BF6949 /* Behavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98CC240135C700BF6949 /* Behavior.swift */; };
-		AC5D99042402A70A00BF6949 /* RssCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5C92C523D8157200878888 /* RssCellViewModel.swift */; };
 		AC5D990A2402A82100BF6949 /* RssCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D99092402A82100BF6949 /* RssCellProtocol.swift */; };
 		AC5D990B2402A88700BF6949 /* RssCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5C92BF23D8141D00878888 /* RssCell.swift */; };
-		AC5D990C2402A90300BF6949 /* FeedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98FD240284D300BF6949 /* FeedCellViewModel.swift */; };
+		AC5D990C2402A90300BF6949 /* RssCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98FD240284D300BF6949 /* RssCellViewModel.swift */; };
+		AC5D990E2403AD6400BF6949 /* RssCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D990D2403AD6400BF6949 /* RssCellDelegate.swift */; };
+		AC5D99122403B8EC00BF6949 /* CellSelectDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D99112403B8EC00BF6949 /* CellSelectDelegate.swift */; };
 		AC8B38EE23D305C800E831E5 /* Errorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8B38ED23D305C800E831E5 /* Errorable.swift */; };
 		AC8B38F223D30B9D00E831E5 /* Notifire.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8B38F123D30B9D00E831E5 /* Notifire.swift */; };
 		AC8B38F823D3231100E831E5 /* FeedChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8B38F723D3231100E831E5 /* FeedChannel.swift */; };
@@ -75,7 +76,6 @@
 		AC5C92B523D80F1C00878888 /* FeedRss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRss.swift; sourceTree = "<group>"; };
 		AC5C92B923D8124400878888 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		AC5C92BF23D8141D00878888 /* RssCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RssCell.swift; sourceTree = "<group>"; };
-		AC5C92C523D8157200878888 /* RssCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RssCellViewModel.swift; sourceTree = "<group>"; };
 		AC5C92C823D81A4400878888 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		AC5C92C923D81A4400878888 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		AC5C92CC23D81C6100878888 /* NavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDelegate.swift; sourceTree = "<group>"; };
@@ -100,8 +100,10 @@
 		AC5D98F524025BFF00BF6949 /* MainViewPortocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPortocol.swift; sourceTree = "<group>"; };
 		AC5D98F824025F8900BF6949 /* MainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRepository.swift; sourceTree = "<group>"; };
 		AC5D98FA24025FF100BF6949 /* MainRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRepositoryProtocol.swift; sourceTree = "<group>"; };
-		AC5D98FD240284D300BF6949 /* FeedCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellViewModel.swift; sourceTree = "<group>"; };
+		AC5D98FD240284D300BF6949 /* RssCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssCellViewModel.swift; sourceTree = "<group>"; };
 		AC5D99092402A82100BF6949 /* RssCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssCellProtocol.swift; sourceTree = "<group>"; };
+		AC5D990D2403AD6400BF6949 /* RssCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssCellDelegate.swift; sourceTree = "<group>"; };
+		AC5D99112403B8EC00BF6949 /* CellSelectDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellSelectDelegate.swift; sourceTree = "<group>"; };
 		AC8B38ED23D305C800E831E5 /* Errorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errorable.swift; sourceTree = "<group>"; };
 		AC8B38F123D30B9D00E831E5 /* Notifire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifire.swift; sourceTree = "<group>"; };
 		AC8B38F723D3231100E831E5 /* FeedChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedChannel.swift; sourceTree = "<group>"; };
@@ -246,7 +248,6 @@
 				AC5D99082402A7C900BF6949 /* Protocol */,
 				AC5D99072402A7BC00BF6949 /* View */,
 				AC5D99062402A7AD00BF6949 /* Presenter */,
-				AC5C92C523D8157200878888 /* RssCellViewModel.swift */,
 			);
 			path = RssCell;
 			sourceTree = "<group>";
@@ -405,17 +406,9 @@
 			isa = PBXGroup;
 			children = (
 				AC5D98B624010C0400BF6949 /* RssCell */,
-				AC5D98DB24014D0200BF6949 /* Behavior */,
 				AC5D98B824010C0400BF6949 /* BookmarksController.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		AC5D98DB24014D0200BF6949 /* Behavior */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Behavior;
 			sourceTree = "<group>";
 		};
 		AC5D98DD24014DA300BF6949 /* Presenter */ = {
@@ -489,7 +482,7 @@
 		AC5D99062402A7AD00BF6949 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				AC5D98FD240284D300BF6949 /* FeedCellViewModel.swift */,
+				AC5D98FD240284D300BF6949 /* RssCellViewModel.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -506,6 +499,7 @@
 			isa = PBXGroup;
 			children = (
 				AC5D99092402A82100BF6949 /* RssCellProtocol.swift */,
+				AC5D990D2403AD6400BF6949 /* RssCellDelegate.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -566,6 +560,7 @@
 				E98A8A1923D5FE65003BB2C1 /* NetworkService.swift */,
 				AC5D98E624024B0100BF6949 /* RssViewModelProtocol.swift */,
 				AC5D98E424023FA100BF6949 /* RssModelProtocol.swift */,
+				AC5D99112403B8EC00BF6949 /* CellSelectDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -706,6 +701,7 @@
 			files = (
 				AC5C92B423D80E2F00878888 /* Feed.swift in Sources */,
 				AC5D98EA240250E500BF6949 /* DetailViewModelProtocol.swift in Sources */,
+				AC5D990E2403AD6400BF6949 /* RssCellDelegate.swift in Sources */,
 				E98A8A3B23D74E5B003BB2C1 /* AppDelegate.swift in Sources */,
 				AC5D98EC240251D000BF6949 /* DetailController.swift in Sources */,
 				AC5D990324029D5A00BF6949 /* Behavior.swift in Sources */,
@@ -715,9 +711,10 @@
 				AC5C92B623D80F1C00878888 /* FeedRss.swift in Sources */,
 				AC5D98C524010D5A00BF6949 /* BookmarksController.swift in Sources */,
 				AC5D98C424010D5500BF6949 /* BookmarkCellViewModel.swift in Sources */,
-				AC5D990C2402A90300BF6949 /* FeedCellViewModel.swift in Sources */,
+				AC5D990C2402A90300BF6949 /* RssCellViewModel.swift in Sources */,
 				AC5D98C324010D5200BF6949 /* BookmarkCell.swift in Sources */,
 				AC5D990A2402A82100BF6949 /* RssCellProtocol.swift in Sources */,
+				AC5D99122403B8EC00BF6949 /* CellSelectDelegate.swift in Sources */,
 				E98A8A4223D77303003BB2C1 /* FeedItem.swift in Sources */,
 				AC5D990224029D5A00BF6949 /* ListDataSource.swift in Sources */,
 				AC5D98F424025B6D00BF6949 /* MainViewModel.swift in Sources */,
@@ -746,7 +743,6 @@
 				AC5C92B723D8108B00878888 /* FetchTarget.swift in Sources */,
 				E98A8A4023D74ED8003BB2C1 /* BaseCoordinator.swift in Sources */,
 				AC5C92D723D8472E00878888 /* Bookmark.swift in Sources */,
-				AC5D99042402A70A00BF6949 /* RssCellViewModel.swift in Sources */,
 				AC5D98F724025C4700BF6949 /* MainController.swift in Sources */,
 				E98A8A2223D5FE65003BB2C1 /* BasicNetworkService.swift in Sources */,
 			);
