@@ -16,10 +16,21 @@ enum RssAction: APIAction {
         return .get
     }
     
+    var responseType: ResponseType {
+        switch path.split(separator: ".")[1].uppercased(){
+        case "JSON":
+            return .JSON
+        case "RSS":
+            return .XML
+        default:
+            return .JSON
+        }
+    }
+    
     var path: String {
         switch self {
         case .unitedStates:
-            return "/us/books/top-free/all/50/explicit.rss"
+            return "/us/books/top-free/all/50/explicit.json"
         case .unitedKingdom:
             return "/gb/books/top-free/all/50/explicit.rss"
         }

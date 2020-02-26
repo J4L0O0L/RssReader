@@ -13,3 +13,4 @@ protocol RssModelProtocol {
     var link: String  { get }
     var description: String  { get }
 }
+

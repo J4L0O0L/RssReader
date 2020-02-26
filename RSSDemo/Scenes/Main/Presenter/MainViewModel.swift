@@ -14,7 +14,7 @@ final class MainViewModel: BaseViewModel, MainViewModelProtocol {
 
     
     // MARK: - Init and deinit
-    init( networkservice: NetworkService) {
+    init( networkservice: NetworkServiceProtocol) {
         super.init()
         repository = MainRepository(networkservice)
         

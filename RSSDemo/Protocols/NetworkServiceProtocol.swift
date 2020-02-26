@@ -8,6 +8,6 @@
 
 import RxSwift
 
-protocol NetworkService {
-    func loadXml<T>(_ resource: SingleXmlResource<T>) -> Observable<T>
+protocol NetworkServiceProtocol {
+    func loadFeed<T>(_ resource: ResponseResource<T>) -> Observable<T>  where T : RequestModelProtocol
 }

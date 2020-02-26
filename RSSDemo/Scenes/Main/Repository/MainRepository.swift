@@ -11,25 +11,23 @@ import RxSwift
 
 class MainRepository: MainRepositoryProtocol {
 
-    init(_ service: NetworkService){
+    init(_ service: NetworkServiceProtocol){
         self.service = service
     }
     
-    private var service : NetworkService?
+    private var service : NetworkServiceProtocol?
     
-    public func getFeed(_ target: Observable<FetchTarget>) -> Observable<[FeedItem]> {
-        return target.flatMap { fetchTarget -> Observable<[FeedItem]> in
+    public func getFeed(_ target: Observable<FetchTarget>) -> Observable<[RssModelProtocol]> {
+        return target.flatMap { fetchTarget -> Observable<[RssModelProtocol]> in
             switch fetchTarget {
             case .unitedSates:
                 return self.service?
-                    .loadXml(SingleXmlResource<Feed>(action: RssAction.unitedStates))
-                    .map { $0.rss.channel.items } ?? Observable.just([])
-                
+                    .loadFeed(ResponseResource<FeedJson>(action: RssAction.unitedStates, parser: JsonParser()))
+                    .map { $0.feed.results } ?? Observable.just([])
             case .unitedKingdom:
-                return self.service?
-                    .loadXml(SingleXmlResource<Feed>(action: RssAction.unitedKingdom))
-                    .map { $0.rss.channel.items }
-                    ?? Observable.just([])
+               return self.service?
+                    .loadFeed(ResponseResource<Feed>(action: RssAction.unitedKingdom, parser: XmlParser()))
+                    .map { $0.rss.channel.items }  ?? Observable.just([])
             }
         }
     }

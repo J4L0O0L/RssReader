@@ -8,11 +8,10 @@
 
 import RxSwift
 import RxAlamofire
-import SWXMLHash
 
-struct BasicNetworkService: NetworkService {
-    
-    func loadXml<T>(_ resource: SingleXmlResource<T>) -> Observable<T> where T : XMLIndexerDeserializable {
+struct NetworkService: NetworkServiceProtocol {
+
+    func loadFeed<T>(_ resource: ResponseResource<T>) -> Observable<T>  where T :RequestModelProtocol  {
         return
             RxAlamofire
                 .request(resource.action)

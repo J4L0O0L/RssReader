@@ -9,7 +9,7 @@
 import Foundation
 import SWXMLHash
 
-struct FeedItem: RssModelProtocol, XMLIndexerDeserializable {
+struct FeedItem: RssModelProtocol, RequestModelProtocol {
     let title: String
     let link: String
     let description: String

@@ -9,7 +9,7 @@
 import Foundation
 import SWXMLHash
 
-struct Feed: XMLIndexerDeserializable {
+struct Feed: RequestModelProtocol {    
     let rss: FeedRss
     
     static func deserialize(_ node: XMLIndexer) throws -> Feed {
@@ -17,4 +17,5 @@ struct Feed: XMLIndexerDeserializable {
             rss: node["rss"].value()
         )
     }
+
 }

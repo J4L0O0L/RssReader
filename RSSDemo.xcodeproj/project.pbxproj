@@ -34,7 +34,6 @@
 		AC5D98F424025B6D00BF6949 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC41CCA023D2F81D005E6A9A /* MainViewModel.swift */; };
 		AC5D98F624025BFF00BF6949 /* MainViewPortocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98F524025BFF00BF6949 /* MainViewPortocol.swift */; };
 		AC5D98F724025C4700BF6949 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC41CCA223D2F942005E6A9A /* MainController.swift */; };
-		AC5D98F924025F8900BF6949 /* MainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98F824025F8900BF6949 /* MainRepository.swift */; };
 		AC5D98FB24025FF100BF6949 /* MainRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98FA24025FF100BF6949 /* MainRepositoryProtocol.swift */; };
 		AC5D990224029D5A00BF6949 /* ListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98CF2401364300BF6949 /* ListDataSource.swift */; };
 		AC5D990324029D5A00BF6949 /* Behavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98CC240135C700BF6949 /* Behavior.swift */; };
@@ -50,17 +49,26 @@
 		AC5D991C2406385D00BF6949 /* BookmarkViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D991B2406385D00BF6949 /* BookmarkViewModelProtocol.swift */; };
 		AC5D992124063AAA00BF6949 /* BookmarkCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D992024063AAA00BF6949 /* BookmarkCellViewModelProtocol.swift */; };
 		AC5D992224063D4000BF6949 /* BookmarkCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98BA24010C0C00BF6949 /* BookmarkCellViewModel.swift */; };
+		AC5D992524065D0600BF6949 /* RequestModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D992424065D0600BF6949 /* RequestModelProtocol.swift */; };
+		AC5D99272406606F00BF6949 /* ResponseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D99262406606F00BF6949 /* ResponseType.swift */; };
+		AC5D992D240669D200BF6949 /* FeedJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D992B240666BD00BF6949 /* FeedJson.swift */; };
+		AC5D992E240669D200BF6949 /* FeedChannelJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D992C2406680F00BF6949 /* FeedChannelJson.swift */; };
+		AC5D992F240669D200BF6949 /* FeedItemJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D992A240666BD00BF6949 /* FeedItemJson.swift */; };
+		AC5D9932240675CA00BF6949 /* ParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D9931240675CA00BF6949 /* ParserProtocol.swift */; };
+		AC5D99342406777900BF6949 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D99332406777900BF6949 /* JsonParser.swift */; };
+		AC5D993624067A8200BF6949 /* XmlParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D993524067A8200BF6949 /* XmlParser.swift */; };
+		AC5D99372406946200BF6949 /* MainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98F824025F8900BF6949 /* MainRepository.swift */; };
 		AC8B38EE23D305C800E831E5 /* Errorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8B38ED23D305C800E831E5 /* Errorable.swift */; };
 		AC8B38F223D30B9D00E831E5 /* Notifire.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8B38F123D30B9D00E831E5 /* Notifire.swift */; };
 		AC8B38F823D3231100E831E5 /* FeedChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8B38F723D3231100E831E5 /* FeedChannel.swift */; };
 		E98A8A1C23D5FE65003BB2C1 /* APIAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A8A0A23D5FE65003BB2C1 /* APIAction.swift */; };
-		E98A8A2223D5FE65003BB2C1 /* BasicNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A8A1223D5FE65003BB2C1 /* BasicNetworkService.swift */; };
-		E98A8A2723D5FE65003BB2C1 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A8A1923D5FE65003BB2C1 /* NetworkService.swift */; };
+		E98A8A2223D5FE65003BB2C1 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A8A1223D5FE65003BB2C1 /* NetworkService.swift */; };
+		E98A8A2723D5FE65003BB2C1 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A8A1923D5FE65003BB2C1 /* NetworkServiceProtocol.swift */; };
 		E98A8A3B23D74E5B003BB2C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A8A3923D74E5B003BB2C1 /* AppDelegate.swift */; };
 		E98A8A3F23D74ED8003BB2C1 /* NibInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A8A3D23D74ED8003BB2C1 /* NibInitializable.swift */; };
 		E98A8A4023D74ED8003BB2C1 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A8A3E23D74ED8003BB2C1 /* BaseCoordinator.swift */; };
 		E98A8A4223D77303003BB2C1 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A8A4123D77303003BB2C1 /* FeedItem.swift */; };
-		E98A8A4823D7B7CD003BB2C1 /* SingleXmlResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A8A4723D7B7CD003BB2C1 /* SingleXmlResource.swift */; };
+		E98A8A4823D7B7CD003BB2C1 /* ResponseResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A8A4723D7B7CD003BB2C1 /* ResponseResource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,18 +121,26 @@
 		AC5D9919240635CE00BF6949 /* BaseViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewProtocol.swift; sourceTree = "<group>"; };
 		AC5D991B2406385D00BF6949 /* BookmarkViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewModelProtocol.swift; sourceTree = "<group>"; };
 		AC5D992024063AAA00BF6949 /* BookmarkCellViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkCellViewModelProtocol.swift; sourceTree = "<group>"; };
+		AC5D992424065D0600BF6949 /* RequestModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestModelProtocol.swift; sourceTree = "<group>"; };
+		AC5D99262406606F00BF6949 /* ResponseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseType.swift; sourceTree = "<group>"; };
+		AC5D992A240666BD00BF6949 /* FeedItemJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemJson.swift; sourceTree = "<group>"; };
+		AC5D992B240666BD00BF6949 /* FeedJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedJson.swift; sourceTree = "<group>"; };
+		AC5D992C2406680F00BF6949 /* FeedChannelJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedChannelJson.swift; sourceTree = "<group>"; };
+		AC5D9931240675CA00BF6949 /* ParserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserProtocol.swift; sourceTree = "<group>"; };
+		AC5D99332406777900BF6949 /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
+		AC5D993524067A8200BF6949 /* XmlParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XmlParser.swift; sourceTree = "<group>"; };
 		AC8B38ED23D305C800E831E5 /* Errorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errorable.swift; sourceTree = "<group>"; };
 		AC8B38F123D30B9D00E831E5 /* Notifire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifire.swift; sourceTree = "<group>"; };
 		AC8B38F723D3231100E831E5 /* FeedChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedChannel.swift; sourceTree = "<group>"; };
 		E98A8A0A23D5FE65003BB2C1 /* APIAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIAction.swift; sourceTree = "<group>"; };
-		E98A8A1223D5FE65003BB2C1 /* BasicNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicNetworkService.swift; sourceTree = "<group>"; };
-		E98A8A1923D5FE65003BB2C1 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		E98A8A1223D5FE65003BB2C1 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		E98A8A1923D5FE65003BB2C1 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		E98A8A2C23D62C5F003BB2C1 /* FetchTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTarget.swift; sourceTree = "<group>"; };
 		E98A8A3923D74E5B003BB2C1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E98A8A3D23D74ED8003BB2C1 /* NibInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibInitializable.swift; sourceTree = "<group>"; };
 		E98A8A3E23D74ED8003BB2C1 /* BaseCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseCoordinator.swift; path = RSSDemo/Support/BaseCoordinator.swift; sourceTree = SOURCE_ROOT; };
 		E98A8A4123D77303003BB2C1 /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
-		E98A8A4723D7B7CD003BB2C1 /* SingleXmlResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleXmlResource.swift; sourceTree = "<group>"; };
+		E98A8A4723D7B7CD003BB2C1 /* ResponseResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseResource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,12 +208,10 @@
 		AC41CC9723D2F48F005E6A9A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				AC5D99292406667800BF6949 /* JSON */,
+				AC5D99282406666E00BF6949 /* XML */,
 				AC5C92D423D846F900878888 /* Realm */,
 				AC41CCB023D303E4005E6A9A /* Enums */,
-				AC5C92B323D80E2F00878888 /* Feed.swift */,
-				AC5C92B523D80F1C00878888 /* FeedRss.swift */,
-				AC8B38F723D3231100E831E5 /* FeedChannel.swift */,
-				E98A8A4123D77303003BB2C1 /* FeedItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -540,9 +554,40 @@
 			path = Rss;
 			sourceTree = "<group>";
 		};
+		AC5D99282406666E00BF6949 /* XML */ = {
+			isa = PBXGroup;
+			children = (
+				AC5C92B323D80E2F00878888 /* Feed.swift */,
+				AC5C92B523D80F1C00878888 /* FeedRss.swift */,
+				AC8B38F723D3231100E831E5 /* FeedChannel.swift */,
+				E98A8A4123D77303003BB2C1 /* FeedItem.swift */,
+			);
+			path = XML;
+			sourceTree = "<group>";
+		};
+		AC5D99292406667800BF6949 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				AC5D992B240666BD00BF6949 /* FeedJson.swift */,
+				AC5D992C2406680F00BF6949 /* FeedChannelJson.swift */,
+				AC5D992A240666BD00BF6949 /* FeedItemJson.swift */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		AC5D9930240675A700BF6949 /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				AC5D993524067A8200BF6949 /* XmlParser.swift */,
+				AC5D99332406777900BF6949 /* JsonParser.swift */,
+			);
+			path = Parsers;
+			sourceTree = "<group>";
+		};
 		E98A8A0823D5FE65003BB2C1 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				AC5D9930240675A700BF6949 /* Parsers */,
 				E98A8A0923D5FE65003BB2C1 /* Actions */,
 				E98A8A0D23D5FE65003BB2C1 /* Resource */,
 				E98A8A1023D5FE65003BB2C1 /* Services */,
@@ -555,6 +600,7 @@
 			children = (
 				E98A8A0A23D5FE65003BB2C1 /* APIAction.swift */,
 				AC5C92B023D80D4F00878888 /* RssAction.swift */,
+				AC5D99262406606F00BF6949 /* ResponseType.swift */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -562,7 +608,7 @@
 		E98A8A0D23D5FE65003BB2C1 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				E98A8A4723D7B7CD003BB2C1 /* SingleXmlResource.swift */,
+				E98A8A4723D7B7CD003BB2C1 /* ResponseResource.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -570,7 +616,7 @@
 		E98A8A1023D5FE65003BB2C1 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				E98A8A1223D5FE65003BB2C1 /* BasicNetworkService.swift */,
+				E98A8A1223D5FE65003BB2C1 /* NetworkService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -594,10 +640,12 @@
 			isa = PBXGroup;
 			children = (
 				AC5D99232406426400BF6949 /* Rss */,
-				E98A8A1923D5FE65003BB2C1 /* NetworkService.swift */,
+				E98A8A1923D5FE65003BB2C1 /* NetworkServiceProtocol.swift */,
 				AC5D99112403B8EC00BF6949 /* CellSelectDelegate.swift */,
 				AC5D99172406354800BF6949 /* BaseViewModelProtocol.swift */,
 				AC5D9919240635CE00BF6949 /* BaseViewProtocol.swift */,
+				AC5D992424065D0600BF6949 /* RequestModelProtocol.swift */,
+				AC5D9931240675CA00BF6949 /* ParserProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -742,12 +790,13 @@
 				E98A8A3B23D74E5B003BB2C1 /* AppDelegate.swift in Sources */,
 				AC5D98EC240251D000BF6949 /* DetailController.swift in Sources */,
 				AC5D990324029D5A00BF6949 /* Behavior.swift in Sources */,
-				E98A8A2723D5FE65003BB2C1 /* NetworkService.swift in Sources */,
+				E98A8A2723D5FE65003BB2C1 /* NetworkServiceProtocol.swift in Sources */,
 				AC5D98F624025BFF00BF6949 /* MainViewPortocol.swift in Sources */,
-				E98A8A4823D7B7CD003BB2C1 /* SingleXmlResource.swift in Sources */,
+				E98A8A4823D7B7CD003BB2C1 /* ResponseResource.swift in Sources */,
 				AC5C92B623D80F1C00878888 /* FeedRss.swift in Sources */,
 				AC5D992124063AAA00BF6949 /* BookmarkCellViewModelProtocol.swift in Sources */,
 				AC5D98C524010D5A00BF6949 /* BookmarksController.swift in Sources */,
+				AC5D99372406946200BF6949 /* MainRepository.swift in Sources */,
 				AC5D990C2402A90300BF6949 /* RssCellViewModel.swift in Sources */,
 				AC5D991A240635CE00BF6949 /* BaseViewProtocol.swift in Sources */,
 				AC5D98C324010D5200BF6949 /* BookmarkCell.swift in Sources */,
@@ -757,13 +806,16 @@
 				AC5D990224029D5A00BF6949 /* ListDataSource.swift in Sources */,
 				AC5D98F424025B6D00BF6949 /* MainViewModel.swift in Sources */,
 				AC5D98FB24025FF100BF6949 /* MainRepositoryProtocol.swift in Sources */,
+				AC5D99272406606F00BF6949 /* ResponseType.swift in Sources */,
 				AC5C92DA23D8474200878888 /* BookmarkDAL.swift in Sources */,
 				AC5D99152403DD5000BF6949 /* DataRequest.swift in Sources */,
 				AC41CCB223D30420005E6A9A /* CustomError.swift in Sources */,
 				AC5D98F3240255F700BF6949 /* MainViewModelProtocol.swift in Sources */,
+				AC5D9932240675CA00BF6949 /* ParserProtocol.swift in Sources */,
 				AC5C92BA23D8124400878888 /* Utility.swift in Sources */,
+				AC5D992D240669D200BF6949 /* FeedJson.swift in Sources */,
 				AC41CCAB23D300A4005E6A9A /* BaseViewModel.swift in Sources */,
-				AC5D98F924025F8900BF6949 /* MainRepository.swift in Sources */,
+				AC5D99342406777900BF6949 /* JsonParser.swift in Sources */,
 				AC8B38F823D3231100E831E5 /* FeedChannel.swift in Sources */,
 				AC5D98C624010D5D00BF6949 /* BookmarksViewModel.swift in Sources */,
 				AC5D98E524023FA100BF6949 /* RssModelProtocol.swift in Sources */,
@@ -776,17 +828,21 @@
 				AC5D99182406354800BF6949 /* BaseViewModelProtocol.swift in Sources */,
 				AC41CCAF23D3021B005E6A9A /* Message.swift in Sources */,
 				E98A8A1C23D5FE65003BB2C1 /* APIAction.swift in Sources */,
+				AC5D992F240669D200BF6949 /* FeedItemJson.swift in Sources */,
 				E98A8A3F23D74ED8003BB2C1 /* NibInitializable.swift in Sources */,
+				AC5D992E240669D200BF6949 /* FeedChannelJson.swift in Sources */,
 				AC5C92B123D80D4F00878888 /* RssAction.swift in Sources */,
 				AC8B38F223D30B9D00E831E5 /* Notifire.swift in Sources */,
 				AC5D991C2406385D00BF6949 /* BookmarkViewModelProtocol.swift in Sources */,
 				AC5D990B2402A88700BF6949 /* RssCell.swift in Sources */,
+				AC5D992524065D0600BF6949 /* RequestModelProtocol.swift in Sources */,
 				AC5C92B723D8108B00878888 /* FetchTarget.swift in Sources */,
+				AC5D993624067A8200BF6949 /* XmlParser.swift in Sources */,
 				E98A8A4023D74ED8003BB2C1 /* BaseCoordinator.swift in Sources */,
 				AC5D992224063D4000BF6949 /* BookmarkCellViewModel.swift in Sources */,
 				AC5C92D723D8472E00878888 /* Bookmark.swift in Sources */,
 				AC5D98F724025C4700BF6949 /* MainController.swift in Sources */,
-				E98A8A2223D5FE65003BB2C1 /* BasicNetworkService.swift in Sources */,
+				E98A8A2223D5FE65003BB2C1 /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
