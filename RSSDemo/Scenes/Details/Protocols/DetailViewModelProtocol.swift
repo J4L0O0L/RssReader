@@ -9,7 +9,6 @@
 import Foundation
 import RxSwift
 
-protocol DetailViewModelProtocol: class {
-    func attachView(_ view: DetailViewProtocol)
+protocol DetailViewModelProtocol: BaseViewModelProtocol {
     var bookmarkedSelection: PublishSubject<Void> {get}
 }

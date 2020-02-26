@@ -25,7 +25,6 @@ class MainRepository: MainRepositoryProtocol {
                     .loadXml(SingleXmlResource<Feed>(action: RssAction.unitedStates))
                     .map { $0.rss.channel.items } ?? Observable.just([])
                 
-                
             case .unitedKingdom:
                 return self.service?
                     .loadXml(SingleXmlResource<Feed>(action: RssAction.unitedKingdom))
@@ -33,7 +32,6 @@ class MainRepository: MainRepositoryProtocol {
                     ?? Observable.just([])
             }
         }
-        
     }
     
     public func setBookmark(data: RssViewModelProtocol, completion: dalCompletion?){

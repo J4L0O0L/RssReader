@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 
-class RssCell: UITableViewCell, UpdateCellBehvaior {
+class RssCell: UITableViewCell {
     
     private let titleLabel = UILabel()
     private let badgeBtn = UIButton(type: .custom)
@@ -58,12 +58,14 @@ class RssCell: UITableViewCell, UpdateCellBehvaior {
         viewModel?.bookmarkCell()
     }
     
+}
+
+extension RssCell: UpdateCellBehvaior{
     func updateCell(item: CellBehavior) {
         if let model = item as? RssCellViewModelProtocol {
-            self.viewModel = model
+            viewModel = model
             titleLabel.text = model.title
             badgeBtn.setImage(UIImage(named: model.isBookmarked ? "badge-fill" : "badge"), for: .normal)
-            //layoutIfNeeded()
         }
         
     }

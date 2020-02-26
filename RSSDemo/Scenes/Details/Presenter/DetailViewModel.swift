@@ -31,8 +31,9 @@ final class DetailViewModel: BaseViewModel, DetailViewModelProtocol {
     
     var bookmarkedSelection = PublishSubject<Void>()
     
-    func attachView(_ view: DetailViewProtocol){
-        self.view = view
+    
+    func attachView(view: BaseViewProtocol){
+        self.view = view as? DetailViewProtocol
         setupData()
     }
     

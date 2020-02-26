@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-protocol DetailViewProtocol: class {
+protocol DetailViewProtocol: BaseViewProtocol {
     func loadUrl(url: String)
     func setRssDetail(data: RssViewModelProtocol)
 }

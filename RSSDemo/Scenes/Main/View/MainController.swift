@@ -19,9 +19,11 @@ final class MainController: UIViewController {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     deinit {
         print("\(self) dealloc")
     }
@@ -29,8 +31,6 @@ final class MainController: UIViewController {
     // MARK: - Properties
     let viewModel: MainViewModelProtocol
     let disposeBag = DisposeBag()
-    
-    var tableData: [CellBehavior]?
     
     var dataSource: ListDataSource?
     
@@ -49,8 +49,8 @@ final class MainController: UIViewController {
         setupUI()
         setupBindings()
         
-        viewModel.attachView(self)
-      
+        viewModel.attachView(view: self)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,7 +60,6 @@ final class MainController: UIViewController {
     
     // MARK: - Functions
     private func setupTableView() {
-        //tableView.register(RssCell.self, forCellReuseIdentifier: "CellId")
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.top.equalTo(modeSelectionSegment.snp.bottom).offset(8)
@@ -75,14 +74,14 @@ final class MainController: UIViewController {
     }
     
     private func setupModeSelectionSegment() {
-       view.addSubview(modeSelectionSegment)
-       modeSelectionSegment.snp.makeConstraints { (make) in
-         make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(8)
-         make.leading.equalToSuperview().offset(20)
-         make.trailing.equalToSuperview().offset(-20)
-       }
-       modeSelectionSegment.selectedSegmentIndex = 1
-     }
+        view.addSubview(modeSelectionSegment)
+        modeSelectionSegment.snp.makeConstraints { (make) in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(8)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
+        modeSelectionSegment.selectedSegmentIndex = 1
+    }
     
     fileprivate func setupUI() {
         view.backgroundColor = .white
@@ -97,12 +96,6 @@ final class MainController: UIViewController {
         setupModeSelectionSegmentBindings()
     }
     
-    private func setupBookmarkBindings(){
-        bookmarkButtonItem.rx.tap.bind { _ in
-            self.navigationController?.pushViewController(BookmarksController(), animated: true)
-        }.disposed(by: disposeBag)
-    }
-    
     private func setupModeSelectionSegmentBindings() {
         modeSelectionSegment.rx
             .selectedSegmentIndex
@@ -112,16 +105,23 @@ final class MainController: UIViewController {
             .subscribe(viewModel.modeSelectedSubject)
             .disposed(by: disposeBag)
     }
+    
+    private func setupBookmarkBindings(){
+        bookmarkButtonItem.rx.tap.bind(onNext: gotoBookmarks).disposed(by: disposeBag)
+    }
+    
+    private func gotoBookmarks(){
+        navigationController?.pushViewController(BookmarksController(), animated: true)
+    }
 }
 
 extension MainController: MainViewProtocol{
     func setTable(_ data: [CellBehavior]) {
         data.forEach({ tableView.register(RssCell.self, forCellReuseIdentifier: $0.getReuseIdentifier())})
-        //tableData = data
         dataSource = ListDataSource(models: data, delegate: self)
         tableView.delegate = dataSource
         tableView.dataSource = dataSource
-        tableView.reloadData()
+        reloadTable()
     }
     
     func reloadTable(){
@@ -130,30 +130,8 @@ extension MainController: MainViewProtocol{
     
 }
 
-extension MainController: UITableViewDelegate, UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableData?.count ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: tableData?[indexPath.row].getReuseIdentifier() ?? "") as? RssCell
-        if let dataModel =  tableData?[indexPath.row] {
-               cell?.updateCell(item: dataModel)
-        }
-     
-        return cell!
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-       
-    }
-}
-
 extension MainController: CellSelectDelegate {
     func cellSelected(model: Any) {
-         navigationController?.pushViewController(DetailController(model as! RssViewModelProtocol), animated: true)
+        navigationController?.pushViewController(DetailController(model as! RssViewModelProtocol), animated: true)
     }
-    
-    
 }

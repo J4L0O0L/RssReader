@@ -45,7 +45,7 @@ final class DetailController: UIViewController {
         setupUI()
         setupBookmarkButtonBinding()
         
-        viewModel.attachView(self)
+        viewModel.attachView(view: self)
     }
     
     // MARK: - Functions

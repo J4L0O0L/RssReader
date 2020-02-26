@@ -10,11 +10,6 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-protocol MainViewModelProtocol: class {
-    func attachView(_ view: MainViewProtocol)
+protocol MainViewModelProtocol: BaseViewModelProtocol {
     var modeSelectedSubject: PublishSubject<FetchTarget> { get }
-    var cellSelectedSubject: PublishSubject<RssViewModelProtocol> { get }
-    //var cellViewModelsDriver: Driver<[RssCellViewModel]> { get }
-    var bookmarkSelectedSubject: PublishSubject<(IndexPath,RssViewModelProtocol)> { get }
-    var cellUpdatedDriver: PublishSubject<(IndexPath, RssViewModelProtocol)> { get }
 }

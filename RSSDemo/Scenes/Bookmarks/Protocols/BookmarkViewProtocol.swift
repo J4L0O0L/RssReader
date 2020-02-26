@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol BookmarkView: class {
-    func loadBookmarks(bookmarks: [CellBehavior])
+protocol BookmarkViewProtocol: BaseViewProtocol {
+    func loadBookmarks(_ bookmarks: [CellBehavior])
 }

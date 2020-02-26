@@ -11,9 +11,9 @@ import Foundation
 struct RssCellViewModel: RssCellViewModelProtocol {
     
     private let model: RssModelProtocol
-    private let delegate : RssCellDelegate
+    private let delegate : CellSelectDelegate
 
-    init(delegate: RssCellDelegate, model: RssModelProtocol) {
+    init(delegate: CellSelectDelegate, model: RssModelProtocol) {
         self.delegate = delegate
         self.model = model
     }
@@ -47,7 +47,7 @@ struct RssCellViewModel: RssCellViewModelProtocol {
     }
     
     func bookmarkCell() {
-        delegate.bookmarkTapped(model: self)
+        delegate.cellSelected(model: self)
     }
     
     

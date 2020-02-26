@@ -42,8 +42,18 @@ class BookmarkCell: UITableViewCell {
     }
     
     func configureWith(_ viewModel: BookmarkCellViewModelProtocol, index: Int) {
-        titleLabel.text = viewModel.title
-        self.viewModel = viewModel
-        layoutIfNeeded()
+       
     }
+}
+
+extension BookmarkCell: UpdateCellBehvaior {
+    func updateCell(item: CellBehavior) {
+        if let model = item as? BookmarkCellViewModelProtocol {
+            viewModel = model
+            titleLabel.text = model.title
+            
+            layoutIfNeeded()
+        }
+        
+     }
 }

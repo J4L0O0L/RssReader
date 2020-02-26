@@ -15,7 +15,7 @@ final class BookmarksController: UIViewController {
     
     // MARK: - Init and deinit
     init() {
-        self.viewModel = BookmarksControllerViewModel()
+        self.viewModel = BookmarksViewModel()
         super.init(nibName: nil, bundle: nil)
     }
     required init?(coder aDecoder: NSCoder) {
@@ -26,8 +26,10 @@ final class BookmarksController: UIViewController {
     }
     
     // MARK: - Properties
-    let viewModel: BookmarksControllerViewModelType
+    let viewModel: BookmarkViewModelProtocol
     let disposeBag = DisposeBag()
+    
+    var dataSource: ListDataSource?
     
     // MARK: - UI
     let tableView = UITableView()
@@ -37,11 +39,12 @@ final class BookmarksController: UIViewController {
         super.viewDidLoad()
         setupTableView()
         setupUI()
+        
+        viewModel.attachView(view: self)
     }
     
     // MARK: - Functions
     private func setupTableView() {
-        tableView.register(BookmarkCell.self, forCellReuseIdentifier: "BookmarkCell")
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.top.equalToSuperview()
@@ -54,29 +57,20 @@ final class BookmarksController: UIViewController {
     fileprivate func setupUI() {
         view.backgroundColor = .white
         navigationItem.title = "Bookmarks"
-        setupTableViewBindings()
-    }
-    
-    private func setupTableViewBindings() {
-        
-        viewModel.cellViewModelsDriver
-            .drive(tableView.rx.items) { tableView, row, viewModel in
-                let cell = tableView.dequeueReusableCell(withIdentifier: "BookmarkCell") as! BookmarkCell
-                cell.configureWith(viewModel, index: row)
-                return cell
-        }.disposed(by: disposeBag)
-        
-        tableView.rx
-            .modelSelected(BookmarkCellViewModelProtocol.self)
-            .do(onNext: { _ in self.tableView.indexPathsForSelectedRows?.forEach { self.tableView.deselectRow(at: $0, animated: true) }})
-            .subscribe(onNext: {self.tableCellSelected($0)})
-            .disposed(by: disposeBag)
-        
-        
-    }
-    
-    private func tableCellSelected(_ viewModel: BookmarkCellViewModelProtocol){
-//        navigationController?.pushViewController(DetailController(RssCellViewModel(FeedItem(title: viewModel.title, link: viewModel.link, description: viewModel.description, pubDate: "", category: []))), animated: true)
     }
 }
 
+extension BookmarksController: BookmarkViewProtocol{
+    func loadBookmarks(_ bookmarks: [CellBehavior]) {
+        bookmarks.forEach({ tableView.register(BookmarkCell.self, forCellReuseIdentifier: $0.getReuseIdentifier())})
+        dataSource = ListDataSource(models: bookmarks, delegate: self)
+        tableView.delegate = dataSource
+        tableView.dataSource = dataSource
+        tableView.reloadData()
+    }
+}
+
+extension BookmarksController: CellSelectDelegate {
+    func cellSelected(model: Any) { navigationController?.pushViewController(DetailController(model as! RssViewModelProtocol), animated: true)
+    }
+}
