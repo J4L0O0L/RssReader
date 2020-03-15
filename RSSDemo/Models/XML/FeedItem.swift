@@ -29,3 +29,4 @@ struct FeedItem: RssModelProtocol, RequestModelProtocol {
         )
     }
 }
+

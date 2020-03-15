@@ -11,6 +11,8 @@ import RxSwift
 import RxCocoa
 
 final class BookmarksViewModel: BaseViewModel, BookmarkViewModelProtocol {
+ 
+    
    
     // MARK: - Init and deinit
     override init() {
@@ -34,11 +36,10 @@ final class BookmarksViewModel: BaseViewModel, BookmarkViewModelProtocol {
     func loadBookmarks(){
         
         BookmarkDAL.shared.fetchAll()
-            .debug("bookmarkLoaded")
             .map({ $0.map( BookmarkCellViewModel.init)})
-            .debug("bookmarkMaped")
             .subscribe(onNext: view?.loadBookmarks)
             .disposed(by: bag)
     }
+    
     
 }

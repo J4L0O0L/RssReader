@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-protocol MainRepositoryProtocol {
+protocol RssRepositoryProtocol {
     func getFeed(_ target: Observable<FetchTarget>) -> Observable<[RssModelProtocol]>
-    func setBookmark(data: RssViewModelProtocol, completion: dalCompletion?)
+    func setBookmark(data: RssViewModelProtocol, completion: dalCompletionWith?)
 }

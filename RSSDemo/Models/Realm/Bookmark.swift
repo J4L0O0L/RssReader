@@ -43,3 +43,9 @@ class Bookmark: Object {
     
 }
 
+extension Bookmark {
+    func makeRssModel() -> RssModelProtocol {
+        return FeedItem(title: title ?? "", link: link ?? "", description: des ?? "", pubDate: pubDate ?? "", category: [])
+    }
+}
+

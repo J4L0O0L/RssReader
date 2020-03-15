@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-class MainRepository: MainRepositoryProtocol {
+class RssRepository: RssRepositoryProtocol {
 
     init(_ service: NetworkServiceProtocol){
         self.service = service
@@ -32,7 +32,7 @@ class MainRepository: MainRepositoryProtocol {
         }
     }
     
-    public func setBookmark(data: RssViewModelProtocol, completion: dalCompletion?){
+    public func setBookmark(data: RssViewModelProtocol, completion: dalCompletionWith?){
         
         data.isBookmarked ? BookmarkDAL.shared.removeBy(title: data.title ,complete: completion) :  BookmarkDAL.shared.insertBookmark(model: data,completion: completion)
         

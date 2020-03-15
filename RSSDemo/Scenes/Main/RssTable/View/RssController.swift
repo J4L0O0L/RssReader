@@ -11,22 +11,25 @@ import SnapKit
 import RxCocoa
 import RxSwift
 
-final class BookmarksController: UIViewController {
+final class RssController: UIViewController {
+    
     
     // MARK: - Init and deinit
-    init() {
-        self.viewModel = BookmarksViewModel()
+    init(_ viewModel: RssTableViewModelProtocol) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     deinit {
         print("\(self) dealloc")
     }
     
     // MARK: - Properties
-    let viewModel: BookmarkViewModelProtocol
+    let viewModel: RssTableViewModelProtocol
     let disposeBag = DisposeBag()
     
     var dataSource: ListDataSource?
@@ -37,17 +40,22 @@ final class BookmarksController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
+        
         setupUI()
         
         viewModel.attachView(view: self)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     // MARK: - Functions
     private func setupTableView() {
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
-            make.top.equalToSuperview()
+            make.top.equalToSuperview().offset(8)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.bottom.equalToSuperview()
@@ -56,28 +64,34 @@ final class BookmarksController: UIViewController {
     
     fileprivate func setupUI() {
         view.backgroundColor = .white
-        navigationItem.title = "Bookmarks"
+        setupTableView()
     }
 }
 
-extension BookmarksController: BookmarkViewProtocol{
-    func loadBookmarks(_ bookmarks: [CellBehavior]) {
-        bookmarks.forEach({ tableView.register(BookmarkCell.self, forCellReuseIdentifier: $0.getReuseIdentifier())})
-        dataSource = ListDataSource(models: bookmarks, delegate: self)
+extension RssController: RssViewProtocol{
+    func setTable(_ data: [CellBehavior]) {
+        data.forEach({ tableView.register(RssCell.self, forCellReuseIdentifier: $0.getReuseIdentifier())})
+        dataSource = ListDataSource(models: data, delegate: self)
         tableView.delegate = dataSource
         tableView.dataSource = dataSource
         tableView.reloadData()
     }
+    
+    func reloadTable(_ data: [CellBehavior]){
+        dataSource?.items = data
+        tableView.reloadData()
+    }
+    
 }
 
-extension BookmarksController: CellSelectDelegate {
-    func cellSelected(model: Any) { navigationController?.pushViewController(DetailController(model as! RssViewModelProtocol, delegate: self), animated: true)
+extension RssController: CellSelectDelegate {
+    func cellSelected(model: Any) {
+        navigationController?.pushViewController(DetailController(model as! RssViewModelProtocol, delegate:  self), animated: true)
     }
 }
 
-
-extension BookmarksController: DetailViewDelegate {
+extension RssController: DetailViewDelegate {
     func rssBookmarked(model: RssViewModelProtocol) {
-        viewModel.loadBookmarks()
+        viewModel.realmCompletion(model)
     }
 }

@@ -15,9 +15,8 @@ final class MainViewModel: BaseViewModel, MainViewModelProtocol {
     
     // MARK: - Init and deinit
     init( networkservice: NetworkServiceProtocol) {
+        networkSrv = networkservice
         super.init()
-        repository = MainRepository(networkservice)
-        
     }
     
     deinit {
@@ -27,7 +26,8 @@ final class MainViewModel: BaseViewModel, MainViewModelProtocol {
     
     // MARK: - Properties
     weak private var view: MainViewProtocol?
-    private var repository: MainRepositoryProtocol?
+    private var VCs = [Int:RssController]()
+    private var networkSrv : NetworkServiceProtocol
     
     
     var modeSelectedSubject = PublishSubject<FetchTarget>()
@@ -36,32 +36,23 @@ final class MainViewModel: BaseViewModel, MainViewModelProtocol {
     func attachView(view: BaseViewProtocol) {
         self.view = view as? MainViewProtocol
         setBinding()
-        
+      
         modeSelectedSubject.onNext(.unitedKingdom)
     }
     
     func setBinding(){
         modeSelectedSubject
-            .do(onNext: {_ in self.isLoading = true})
-            .bind(to: repository!.getFeed)
-            .map({$0.map({RssCellViewModel(delegate: self, model: $0)})})
-            .do(onNext: {_ in self.isLoading = false})
-            .bind(onNext: view!.setTable).disposed(by: bag)
+            .map({ target in
+                if let vc = self.VCs[target.hashValue] {
+                    return vc
+                }
+                let vc =  RssController(RssViewModel(networkservice: self.networkSrv, selectedMode: target))
+                self.VCs[target.hashValue] = vc
+                return vc
+            }).subscribe(onNext: { vc in
+                self.view?.changeVC(vc)
+            }).disposed(by: bag)
     }
     
-    // MARK: - Functions
-    func realmCompletion(){
-        
-        view?.reloadTable()
-        Notifire.shared().showMessage(message: Message.bookmarkSavedSuccessfully.rawValue, type: .success)
-    }
     
-}
-
-extension MainViewModel : CellSelectDelegate {
-    func cellSelected(model: Any) {
-        if let data = model as? RssViewModelProtocol {
-            repository?.setBookmark(data: data, completion: realmCompletion)
-        }
-    }
 }

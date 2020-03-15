@@ -18,9 +18,7 @@ struct RssCellViewModel: RssCellViewModelProtocol {
         self.model = model
     }
     
-    var isBookmarked: Bool {
-        get{ return BookmarkDAL.shared.fetchBy(title: model.title) != nil}
-    }
+    var isBookmarked = false
     
     var title: String{
         get{ return model.title}

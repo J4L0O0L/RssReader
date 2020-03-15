@@ -13,3 +13,7 @@ protocol DetailViewProtocol: BaseViewProtocol {
     func loadUrl(url: String)
     func setRssDetail(data: RssViewModelProtocol)
 }
+
+protocol DetailViewDelegate {
+    func rssBookmarked(model: RssViewModelProtocol)
+}

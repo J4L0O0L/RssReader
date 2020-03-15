@@ -15,13 +15,7 @@ struct BookmarkCellViewModel: BookmarkCellViewModelProtocol {
         self.model = model
     }
     
-    var isBookmarked: Bool {
-        get{
-            guard let title = model.title else {
-                return false
-            }
-            return BookmarkDAL.shared.fetchBy(title: title) != nil}
-    }
+    var isBookmarked = true
     
     func getModel() -> Any? {
         return model

@@ -15,9 +15,10 @@ import RxCocoa
 final class DetailViewModel: BaseViewModel, DetailViewModelProtocol {
  
     // MARK: - Init and deinit
-    init(data: RssViewModelProtocol){
+    init(data: RssViewModelProtocol, delegate: DetailViewDelegate){
         super.init()
         self.data = data
+        self.delegate = delegate
     }
    
     deinit {
@@ -28,6 +29,8 @@ final class DetailViewModel: BaseViewModel, DetailViewModelProtocol {
     weak private var view: DetailViewProtocol?
     var data: RssViewModelProtocol?
     let disposeBag = DisposeBag()
+    
+    var delegate: DetailViewDelegate?
     
     var bookmarkedSelection = PublishSubject<Void>()
     
@@ -54,10 +57,12 @@ final class DetailViewModel: BaseViewModel, DetailViewModelProtocol {
         }
     }
     
-    private func realmCompletion(){
+    private func realmCompletion(_ model: RssModelProtocol){
     
+        let isBookmarked = data!.isBookmarked
+        data?.isBookmarked = !isBookmarked
         view?.setRssDetail(data: data!)
-        Notifire.shared().showMessage(message: Message.bookmarkSavedSuccessfully.rawValue, type: .success)
+        delegate?.rssBookmarked(model: data!)
     }
     
 }

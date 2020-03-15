@@ -14,8 +14,8 @@ import WebKit
 final class DetailController: UIViewController {
     
     // MARK: - Init and deinit
-    init(_ data: RssViewModelProtocol) {
-        viewModel = DetailViewModel(data: data)
+    init(_ data: RssViewModelProtocol, delegate: DetailViewDelegate) {
+        viewModel = DetailViewModel(data: data, delegate: delegate)
         super.init(nibName: nil, bundle: nil)
     }
  

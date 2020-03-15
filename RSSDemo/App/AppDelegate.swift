@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let container = Container() { container in
         // Services
-        container.register(NetworkServiceProtocol.self) { _ in NetworkService() }
+        container.register(NetworkServiceProtocol.self) { _ in return NetworkService() }
         
         // View models
         container.register(MainViewModelProtocol.self) { r in

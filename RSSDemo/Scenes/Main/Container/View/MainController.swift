@@ -10,9 +10,9 @@ import UIKit
 import SnapKit
 import RxCocoa
 import RxSwift
+import Swinject
 
-final class MainController: UIViewController {
-    
+final class MainController: UIViewController, MainViewProtocol {
     
     // MARK: - Init and deinit
     init(_ viewModel: MainViewModelProtocol) {
@@ -32,10 +32,13 @@ final class MainController: UIViewController {
     let viewModel: MainViewModelProtocol
     let disposeBag = DisposeBag()
     
+    
+    
     var dataSource: ListDataSource?
+    let container = Container()
     
     // MARK: - UI
-    let tableView = UITableView()
+    let containerView = UIView()
     let modeSelectionSegment = UISegmentedControl(items: ["United States", "United Kingdom"])
     let bookmarkButtonItem = UIBarButtonItem.init(
         image: UIImage(named: "bookmarks")?
@@ -55,13 +58,12 @@ final class MainController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
     }
     
     // MARK: - Functions
     private func setupTableView() {
-        view.addSubview(tableView)
-        tableView.snp.makeConstraints { (make) in
+        view.addSubview(containerView)
+        containerView.snp.makeConstraints { (make) in
             make.top.equalTo(modeSelectionSegment.snp.bottom).offset(8)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
@@ -110,28 +112,55 @@ final class MainController: UIViewController {
         bookmarkButtonItem.rx.tap.bind(onNext: gotoBookmarks).disposed(by: disposeBag)
     }
     
+    func changeVC(_ vc: UIViewController) {
+        children.forEach({$0.removeFromParent()})
+        addChild(vc)
+        containerView.addSubview(vc.view)
+        vc.view.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.trailing.equalToSuperview()
+        }
+        
+        vc.didMove(toParent: self)
+    }
+    
+    private func changeVcContainer(_ target: Event<FetchTarget>){
+        guard self.container.resolve(NetworkServiceProtocol.self) != nil else {
+            self.container.register(NetworkServiceProtocol.self) { _ in return NetworkService() }
+            changeVcContainer(target)
+            return
+        }
+        
+        if container.resolve(RssViewProtocol.self, name: "\(target.element!.hashValue)") == nil {
+            container.register(RssViewProtocol.self, name: "\(target.element!.hashValue)") { r in
+                
+                let vc =  RssController(RssViewModel(networkservice: r.resolve(NetworkServiceProtocol.self)!, selectedMode: target.element!))
+                return vc
+                
+            }
+        }
+        
+        
+        let controller =  container.resolve(RssViewProtocol.self , name: "\(target.element!.hashValue)") as! UIViewController
+        
+        children.forEach({$0.removeFromParent()})
+        addChild(controller)
+        containerView.addSubview(controller.view)
+        controller.view.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.trailing.equalToSuperview()
+        }
+        
+        controller.didMove(toParent: self)
+        
+    }
+    
     private func gotoBookmarks(){
         navigationController?.pushViewController(BookmarksController(), animated: true)
     }
 }
 
-extension MainController: MainViewProtocol{
-    func setTable(_ data: [CellBehavior]) {
-        data.forEach({ tableView.register(RssCell.self, forCellReuseIdentifier: $0.getReuseIdentifier())})
-        dataSource = ListDataSource(models: data, delegate: self)
-        tableView.delegate = dataSource
-        tableView.dataSource = dataSource
-        reloadTable()
-    }
-    
-    func reloadTable(){
-        tableView.reloadData()
-    }
-    
-}
-
-extension MainController: CellSelectDelegate {
-    func cellSelected(model: Any) {
-        navigationController?.pushViewController(DetailController(model as! RssViewModelProtocol), animated: true)
-    }
-}

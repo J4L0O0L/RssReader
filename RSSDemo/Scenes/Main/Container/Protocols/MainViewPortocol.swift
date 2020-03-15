@@ -1,5 +1,5 @@
 //
-//  BaseRssModelProtocol.swift
+//  MainViewPortocol.swift
 //  RSSDemo
 //
 //  Created by Mohammdereza Jalilvand on 23/02/2020.
@@ -7,7 +7,8 @@
 //
 
 import Foundation
+import RxSwift
 
-protocol RssViewModelProtocol: RssModelProtocol, CellBehavior {
-    var isBookmarked: Bool { get set }
+protocol MainViewProtocol: BaseViewProtocol {
+    func changeVC(_ vc: UIViewController)
 }

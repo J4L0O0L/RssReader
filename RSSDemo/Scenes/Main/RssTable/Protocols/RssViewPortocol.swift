@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-protocol MainViewProtocol: BaseViewProtocol {
+protocol RssViewProtocol: BaseViewProtocol {
     func setTable(_ data: [CellBehavior])
-    func reloadTable()
+    func reloadTable(_ data: [CellBehavior])
 }

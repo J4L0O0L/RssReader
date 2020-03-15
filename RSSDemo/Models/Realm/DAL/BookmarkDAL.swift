@@ -38,14 +38,13 @@ class BookmarkDAL
         }
     }
     
-    func removeBy(title: String, complete : dalCompletion? ) {
+    func removeBy(title: String, complete : dalCompletionWith? ) {
         try! realm.safeWrite {
             guard let item = fetchBy(title: title) else {
-                complete?()
                 return
             }
+            complete?(item.makeRssModel())
             realm.delete(item)
-            complete?()
         }
     }
     
@@ -69,7 +68,7 @@ class BookmarkDAL
         
     }
     
-    func insertBookmark(model: RssModelProtocol, completion: dalCompletion?) {
+    func insertBookmark(model: RssModelProtocol, completion: dalCompletionWith?) {
        
         try! realm.safeWrite {
             let bookmark = Bookmark()
@@ -79,7 +78,7 @@ class BookmarkDAL
             bookmark.des = model.description
             
             realm.add(bookmark)
-            completion?()
+            completion?(model)
         }
     }
 

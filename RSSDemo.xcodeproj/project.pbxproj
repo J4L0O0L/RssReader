@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		3FD4257245D580C003BC5C84 /* Pods_RSSDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A8CCFD437CF70794DF9B81F /* Pods_RSSDemo.framework */; };
+		567DC752241D09430006D1D5 /* RssController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567DC74B241D082F0006D1D5 /* RssController.swift */; };
+		567DC753241D09430006D1D5 /* RssTableViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567DC74D241D08B30006D1D5 /* RssTableViewModelProtocol.swift */; };
+		567DC754241D09430006D1D5 /* RssViewPortocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567DC74E241D08B30006D1D5 /* RssViewPortocol.swift */; };
+		567DC755241D09430006D1D5 /* RssRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567DC74C241D08B30006D1D5 /* RssRepositoryProtocol.swift */; };
+		567DC756241D0D8E0006D1D5 /* RssRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567DC74F241D09090006D1D5 /* RssRepository.swift */; };
+		567DC757241D0D910006D1D5 /* RssViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567DC746241D08070006D1D5 /* RssViewModel.swift */; };
+		567DC759241D22CE0006D1D5 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC41CCA023D2F81D005E6A9A /* MainViewModel.swift */; };
+		567DC75A241D23240006D1D5 /* MainViewPortocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98F524025BFF00BF6949 /* MainViewPortocol.swift */; };
 		AC41CC8C23D2F2F7005E6A9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC41CC8B23D2F2F7005E6A9A /* Assets.xcassets */; };
 		AC41CC8F23D2F2F7005E6A9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC41CC8D23D2F2F7005E6A9A /* LaunchScreen.storyboard */; };
 		AC41CCAB23D300A4005E6A9A /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC41CCAA23D300A4005E6A9A /* BaseViewModel.swift */; };
@@ -31,8 +39,6 @@
 		AC5D98EC240251D000BF6949 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5C92D023D8216D00878888 /* DetailController.swift */; };
 		AC5D98ED240251D400BF6949 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5C92D223D8218B00878888 /* DetailViewModel.swift */; };
 		AC5D98F3240255F700BF6949 /* MainViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98F2240255F700BF6949 /* MainViewModelProtocol.swift */; };
-		AC5D98F424025B6D00BF6949 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC41CCA023D2F81D005E6A9A /* MainViewModel.swift */; };
-		AC5D98F624025BFF00BF6949 /* MainViewPortocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98F524025BFF00BF6949 /* MainViewPortocol.swift */; };
 		AC5D98F724025C4700BF6949 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC41CCA223D2F942005E6A9A /* MainController.swift */; };
 		AC5D98FB24025FF100BF6949 /* MainRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98FA24025FF100BF6949 /* MainRepositoryProtocol.swift */; };
 		AC5D990224029D5A00BF6949 /* ListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98CF2401364300BF6949 /* ListDataSource.swift */; };
@@ -73,6 +79,12 @@
 
 /* Begin PBXFileReference section */
 		1A8CCFD437CF70794DF9B81F /* Pods_RSSDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RSSDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		567DC746241D08070006D1D5 /* RssViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssViewModel.swift; sourceTree = "<group>"; };
+		567DC74B241D082F0006D1D5 /* RssController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssController.swift; sourceTree = "<group>"; };
+		567DC74C241D08B30006D1D5 /* RssRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssRepositoryProtocol.swift; sourceTree = "<group>"; };
+		567DC74D241D08B30006D1D5 /* RssTableViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssTableViewModelProtocol.swift; sourceTree = "<group>"; };
+		567DC74E241D08B30006D1D5 /* RssViewPortocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssViewPortocol.swift; sourceTree = "<group>"; };
+		567DC74F241D09090006D1D5 /* RssRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssRepository.swift; sourceTree = "<group>"; };
 		616F219AE6706789ECBE4C48 /* Pods-RSSDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSDemo.debug.xcconfig"; path = "Target Support Files/Pods-RSSDemo/Pods-RSSDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		84BED388C2136AE3F6247B0D /* Pods-RSSDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSDemo.release.xcconfig"; path = "Target Support Files/Pods-RSSDemo/Pods-RSSDemo.release.xcconfig"; sourceTree = "<group>"; };
 		AC41CC8123D2F2F6005E6A9A /* RSSDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,6 +184,63 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		567DC743241D07DD0006D1D5 /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				AC5D98F1240254C800BF6949 /* Presenter */,
+				AC5D98F0240254C000BF6949 /* Repository */,
+				AC5D98EF240254BC00BF6949 /* View */,
+				AC5D98EE240254AE00BF6949 /* Protocols */,
+			);
+			path = Container;
+			sourceTree = "<group>";
+		};
+		567DC744241D07E60006D1D5 /* RssTable */ = {
+			isa = PBXGroup;
+			children = (
+				567DC745241D08070006D1D5 /* Presenter */,
+				567DC748241D08070006D1D5 /* Repository */,
+				567DC749241D08070006D1D5 /* View */,
+				567DC747241D08070006D1D5 /* Protocols */,
+			);
+			path = RssTable;
+			sourceTree = "<group>";
+		};
+		567DC745241D08070006D1D5 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				567DC746241D08070006D1D5 /* RssViewModel.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		567DC747241D08070006D1D5 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				567DC74D241D08B30006D1D5 /* RssTableViewModelProtocol.swift */,
+				567DC74E241D08B30006D1D5 /* RssViewPortocol.swift */,
+				567DC74C241D08B30006D1D5 /* RssRepositoryProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		567DC748241D08070006D1D5 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				567DC74F241D09090006D1D5 /* RssRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		567DC749241D08070006D1D5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AC5C92BE23D8141D00878888 /* RssCell */,
+				567DC74B241D082F0006D1D5 /* RssController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		AC41CC7823D2F2F6005E6A9A = {
 			isa = PBXGroup;
 			children = (
@@ -229,10 +298,8 @@
 		AC41CC9923D2F4F8005E6A9A /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				AC5D98F1240254C800BF6949 /* Presenter */,
-				AC5D98F0240254C000BF6949 /* Repository */,
-				AC5D98EF240254BC00BF6949 /* View */,
-				AC5D98EE240254AE00BF6949 /* Protocols */,
+				567DC744241D07E60006D1D5 /* RssTable */,
+				567DC743241D07DD0006D1D5 /* Container */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -474,7 +541,6 @@
 		AC5D98EF240254BC00BF6949 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AC5C92BE23D8141D00878888 /* RssCell */,
 				AC41CCA223D2F942005E6A9A /* MainController.swift */,
 			);
 			path = View;
@@ -789,10 +855,11 @@
 				AC5D990E2403AD6400BF6949 /* RssCellDelegate.swift in Sources */,
 				E98A8A3B23D74E5B003BB2C1 /* AppDelegate.swift in Sources */,
 				AC5D98EC240251D000BF6949 /* DetailController.swift in Sources */,
+				567DC759241D22CE0006D1D5 /* MainViewModel.swift in Sources */,
 				AC5D990324029D5A00BF6949 /* Behavior.swift in Sources */,
 				E98A8A2723D5FE65003BB2C1 /* NetworkServiceProtocol.swift in Sources */,
-				AC5D98F624025BFF00BF6949 /* MainViewPortocol.swift in Sources */,
 				E98A8A4823D7B7CD003BB2C1 /* ResponseResource.swift in Sources */,
+				567DC753241D09430006D1D5 /* RssTableViewModelProtocol.swift in Sources */,
 				AC5C92B623D80F1C00878888 /* FeedRss.swift in Sources */,
 				AC5D992124063AAA00BF6949 /* BookmarkCellViewModelProtocol.swift in Sources */,
 				AC5D98C524010D5A00BF6949 /* BookmarksController.swift in Sources */,
@@ -803,8 +870,8 @@
 				AC5D990A2402A82100BF6949 /* RssCellViewModelProtocol.swift in Sources */,
 				AC5D99122403B8EC00BF6949 /* CellSelectDelegate.swift in Sources */,
 				E98A8A4223D77303003BB2C1 /* FeedItem.swift in Sources */,
+				567DC754241D09430006D1D5 /* RssViewPortocol.swift in Sources */,
 				AC5D990224029D5A00BF6949 /* ListDataSource.swift in Sources */,
-				AC5D98F424025B6D00BF6949 /* MainViewModel.swift in Sources */,
 				AC5D98FB24025FF100BF6949 /* MainRepositoryProtocol.swift in Sources */,
 				AC5D99272406606F00BF6949 /* ResponseType.swift in Sources */,
 				AC5C92DA23D8474200878888 /* BookmarkDAL.swift in Sources */,
@@ -815,14 +882,17 @@
 				AC5C92BA23D8124400878888 /* Utility.swift in Sources */,
 				AC5D992D240669D200BF6949 /* FeedJson.swift in Sources */,
 				AC41CCAB23D300A4005E6A9A /* BaseViewModel.swift in Sources */,
+				567DC75A241D23240006D1D5 /* MainViewPortocol.swift in Sources */,
 				AC5D99342406777900BF6949 /* JsonParser.swift in Sources */,
 				AC8B38F823D3231100E831E5 /* FeedChannel.swift in Sources */,
 				AC5D98C624010D5D00BF6949 /* BookmarksViewModel.swift in Sources */,
 				AC5D98E524023FA100BF6949 /* RssModelProtocol.swift in Sources */,
 				AC5D99162406315500BF6949 /* BookmarkViewProtocol.swift in Sources */,
 				AC5D98E724024B0100BF6949 /* RssViewModelProtocol.swift in Sources */,
+				567DC755241D09430006D1D5 /* RssRepositoryProtocol.swift in Sources */,
 				AC5D98E324023CAE00BF6949 /* DetailViewProtocol.swift in Sources */,
 				AC8B38EE23D305C800E831E5 /* Errorable.swift in Sources */,
+				567DC757241D0D910006D1D5 /* RssViewModel.swift in Sources */,
 				AC5C92DD23D847AA00878888 /* Realm.swift in Sources */,
 				AC5D98ED240251D400BF6949 /* DetailViewModel.swift in Sources */,
 				AC5D99182406354800BF6949 /* BaseViewModelProtocol.swift in Sources */,
@@ -836,6 +906,8 @@
 				AC5D991C2406385D00BF6949 /* BookmarkViewModelProtocol.swift in Sources */,
 				AC5D990B2402A88700BF6949 /* RssCell.swift in Sources */,
 				AC5D992524065D0600BF6949 /* RequestModelProtocol.swift in Sources */,
+				567DC756241D0D8E0006D1D5 /* RssRepository.swift in Sources */,
+				567DC752241D09430006D1D5 /* RssController.swift in Sources */,
 				AC5C92B723D8108B00878888 /* FetchTarget.swift in Sources */,
 				AC5D993624067A8200BF6949 /* XmlParser.swift in Sources */,
 				E98A8A4023D74ED8003BB2C1 /* BaseCoordinator.swift in Sources */,
