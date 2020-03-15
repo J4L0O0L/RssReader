@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+import RxSwift
 
 extension Realm {
     public func safeWrite(_ block: (() throws -> Void)) throws {

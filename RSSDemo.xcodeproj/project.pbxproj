@@ -8,10 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		3FD4257245D580C003BC5C84 /* Pods_RSSDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A8CCFD437CF70794DF9B81F /* Pods_RSSDemo.framework */; };
+		567DC752241D09430006D1D5 /* RssController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567DC74B241D082F0006D1D5 /* RssController.swift */; };
+		567DC753241D09430006D1D5 /* RssTableViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567DC74D241D08B30006D1D5 /* RssTableViewModelProtocol.swift */; };
+		567DC754241D09430006D1D5 /* RssViewPortocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567DC74E241D08B30006D1D5 /* RssViewPortocol.swift */; };
+		567DC755241D09430006D1D5 /* RssRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567DC74C241D08B30006D1D5 /* RssRepositoryProtocol.swift */; };
+		567DC756241D0D8E0006D1D5 /* RssRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567DC74F241D09090006D1D5 /* RssRepository.swift */; };
+		567DC757241D0D910006D1D5 /* RssViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567DC746241D08070006D1D5 /* RssViewModel.swift */; };
+		567DC759241D22CE0006D1D5 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC41CCA023D2F81D005E6A9A /* MainViewModel.swift */; };
+		567DC75A241D23240006D1D5 /* MainViewPortocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98F524025BFF00BF6949 /* MainViewPortocol.swift */; };
 		AC41CC8C23D2F2F7005E6A9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC41CC8B23D2F2F7005E6A9A /* Assets.xcassets */; };
 		AC41CC8F23D2F2F7005E6A9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC41CC8D23D2F2F7005E6A9A /* LaunchScreen.storyboard */; };
-		AC41CCA123D2F81D005E6A9A /* MainControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC41CCA023D2F81D005E6A9A /* MainControllerViewModel.swift */; };
-		AC41CCA323D2F942005E6A9A /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC41CCA223D2F942005E6A9A /* MainController.swift */; };
 		AC41CCAB23D300A4005E6A9A /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC41CCAA23D300A4005E6A9A /* BaseViewModel.swift */; };
 		AC41CCAF23D3021B005E6A9A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC41CCAE23D3021B005E6A9A /* Message.swift */; };
 		AC41CCB223D30420005E6A9A /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC41CCB123D30420005E6A9A /* CustomError.swift */; };
@@ -20,36 +26,72 @@
 		AC5C92B623D80F1C00878888 /* FeedRss.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5C92B523D80F1C00878888 /* FeedRss.swift */; };
 		AC5C92B723D8108B00878888 /* FetchTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A8A2C23D62C5F003BB2C1 /* FetchTarget.swift */; };
 		AC5C92BA23D8124400878888 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5C92B923D8124400878888 /* Utility.swift */; };
-		AC5C92C223D8141D00878888 /* RssCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5C92BF23D8141D00878888 /* RssCell.swift */; };
-		AC5C92CD23D81C6100878888 /* NavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5C92CC23D81C6100878888 /* NavigationDelegate.swift */; };
-		AC5C92CF23D81CF800878888 /* RssCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5C92C523D8157200878888 /* RssCellViewModel.swift */; };
-		AC5C92D123D8216D00878888 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5C92D023D8216D00878888 /* DetailController.swift */; };
-		AC5C92D323D8218B00878888 /* DetailControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5C92D223D8218B00878888 /* DetailControllerViewModel.swift */; };
 		AC5C92D723D8472E00878888 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5C92D623D8472E00878888 /* Bookmark.swift */; };
 		AC5C92DA23D8474200878888 /* BookmarkDAL.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5C92D923D8474200878888 /* BookmarkDAL.swift */; };
 		AC5C92DD23D847AA00878888 /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5C92DC23D847AA00878888 /* Realm.swift */; };
+		AC5D98C324010D5200BF6949 /* BookmarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98B924010C0C00BF6949 /* BookmarkCell.swift */; };
+		AC5D98C524010D5A00BF6949 /* BookmarksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98B824010C0400BF6949 /* BookmarksController.swift */; };
+		AC5D98C624010D5D00BF6949 /* BookmarksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98B724010C0400BF6949 /* BookmarksViewModel.swift */; };
+		AC5D98E324023CAE00BF6949 /* DetailViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98E224023CAE00BF6949 /* DetailViewProtocol.swift */; };
+		AC5D98E524023FA100BF6949 /* RssModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98E424023FA100BF6949 /* RssModelProtocol.swift */; };
+		AC5D98E724024B0100BF6949 /* RssViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98E624024B0100BF6949 /* RssViewModelProtocol.swift */; };
+		AC5D98EA240250E500BF6949 /* DetailViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98E9240250E500BF6949 /* DetailViewModelProtocol.swift */; };
+		AC5D98EC240251D000BF6949 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5C92D023D8216D00878888 /* DetailController.swift */; };
+		AC5D98ED240251D400BF6949 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5C92D223D8218B00878888 /* DetailViewModel.swift */; };
+		AC5D98F3240255F700BF6949 /* MainViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98F2240255F700BF6949 /* MainViewModelProtocol.swift */; };
+		AC5D98F724025C4700BF6949 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC41CCA223D2F942005E6A9A /* MainController.swift */; };
+		AC5D98FB24025FF100BF6949 /* MainRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98FA24025FF100BF6949 /* MainRepositoryProtocol.swift */; };
+		AC5D990224029D5A00BF6949 /* ListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98CF2401364300BF6949 /* ListDataSource.swift */; };
+		AC5D990324029D5A00BF6949 /* Behavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98CC240135C700BF6949 /* Behavior.swift */; };
+		AC5D990A2402A82100BF6949 /* RssCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D99092402A82100BF6949 /* RssCellViewModelProtocol.swift */; };
+		AC5D990B2402A88700BF6949 /* RssCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5C92BF23D8141D00878888 /* RssCell.swift */; };
+		AC5D990C2402A90300BF6949 /* RssCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98FD240284D300BF6949 /* RssCellViewModel.swift */; };
+		AC5D990E2403AD6400BF6949 /* RssCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D990D2403AD6400BF6949 /* RssCellDelegate.swift */; };
+		AC5D99122403B8EC00BF6949 /* CellSelectDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D99112403B8EC00BF6949 /* CellSelectDelegate.swift */; };
+		AC5D99152403DD5000BF6949 /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D99142403DD5000BF6949 /* DataRequest.swift */; };
+		AC5D99162406315500BF6949 /* BookmarkViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98DE24014EF700BF6949 /* BookmarkViewProtocol.swift */; };
+		AC5D99182406354800BF6949 /* BaseViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D99172406354800BF6949 /* BaseViewModelProtocol.swift */; };
+		AC5D991A240635CE00BF6949 /* BaseViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D9919240635CE00BF6949 /* BaseViewProtocol.swift */; };
+		AC5D991C2406385D00BF6949 /* BookmarkViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D991B2406385D00BF6949 /* BookmarkViewModelProtocol.swift */; };
+		AC5D992124063AAA00BF6949 /* BookmarkCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D992024063AAA00BF6949 /* BookmarkCellViewModelProtocol.swift */; };
+		AC5D992224063D4000BF6949 /* BookmarkCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98BA24010C0C00BF6949 /* BookmarkCellViewModel.swift */; };
+		AC5D992524065D0600BF6949 /* RequestModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D992424065D0600BF6949 /* RequestModelProtocol.swift */; };
+		AC5D99272406606F00BF6949 /* ResponseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D99262406606F00BF6949 /* ResponseType.swift */; };
+		AC5D992D240669D200BF6949 /* FeedJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D992B240666BD00BF6949 /* FeedJson.swift */; };
+		AC5D992E240669D200BF6949 /* FeedChannelJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D992C2406680F00BF6949 /* FeedChannelJson.swift */; };
+		AC5D992F240669D200BF6949 /* FeedItemJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D992A240666BD00BF6949 /* FeedItemJson.swift */; };
+		AC5D9932240675CA00BF6949 /* ParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D9931240675CA00BF6949 /* ParserProtocol.swift */; };
+		AC5D99342406777900BF6949 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D99332406777900BF6949 /* JsonParser.swift */; };
+		AC5D993624067A8200BF6949 /* XmlParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D993524067A8200BF6949 /* XmlParser.swift */; };
+		AC5D99372406946200BF6949 /* MainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D98F824025F8900BF6949 /* MainRepository.swift */; };
 		AC8B38EE23D305C800E831E5 /* Errorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8B38ED23D305C800E831E5 /* Errorable.swift */; };
 		AC8B38F223D30B9D00E831E5 /* Notifire.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8B38F123D30B9D00E831E5 /* Notifire.swift */; };
 		AC8B38F823D3231100E831E5 /* FeedChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8B38F723D3231100E831E5 /* FeedChannel.swift */; };
 		E98A8A1C23D5FE65003BB2C1 /* APIAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A8A0A23D5FE65003BB2C1 /* APIAction.swift */; };
-		E98A8A2223D5FE65003BB2C1 /* BasicNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A8A1223D5FE65003BB2C1 /* BasicNetworkService.swift */; };
-		E98A8A2723D5FE65003BB2C1 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A8A1923D5FE65003BB2C1 /* NetworkService.swift */; };
+		E98A8A2223D5FE65003BB2C1 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A8A1223D5FE65003BB2C1 /* NetworkService.swift */; };
+		E98A8A2723D5FE65003BB2C1 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A8A1923D5FE65003BB2C1 /* NetworkServiceProtocol.swift */; };
 		E98A8A3B23D74E5B003BB2C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A8A3923D74E5B003BB2C1 /* AppDelegate.swift */; };
 		E98A8A3F23D74ED8003BB2C1 /* NibInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A8A3D23D74ED8003BB2C1 /* NibInitializable.swift */; };
 		E98A8A4023D74ED8003BB2C1 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A8A3E23D74ED8003BB2C1 /* BaseCoordinator.swift */; };
 		E98A8A4223D77303003BB2C1 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A8A4123D77303003BB2C1 /* FeedItem.swift */; };
-		E98A8A4823D7B7CD003BB2C1 /* SingleXmlResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A8A4723D7B7CD003BB2C1 /* SingleXmlResource.swift */; };
+		E98A8A4823D7B7CD003BB2C1 /* ResponseResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98A8A4723D7B7CD003BB2C1 /* ResponseResource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1A8CCFD437CF70794DF9B81F /* Pods_RSSDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RSSDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		567DC746241D08070006D1D5 /* RssViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssViewModel.swift; sourceTree = "<group>"; };
+		567DC74B241D082F0006D1D5 /* RssController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssController.swift; sourceTree = "<group>"; };
+		567DC74C241D08B30006D1D5 /* RssRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssRepositoryProtocol.swift; sourceTree = "<group>"; };
+		567DC74D241D08B30006D1D5 /* RssTableViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssTableViewModelProtocol.swift; sourceTree = "<group>"; };
+		567DC74E241D08B30006D1D5 /* RssViewPortocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssViewPortocol.swift; sourceTree = "<group>"; };
+		567DC74F241D09090006D1D5 /* RssRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssRepository.swift; sourceTree = "<group>"; };
 		616F219AE6706789ECBE4C48 /* Pods-RSSDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSDemo.debug.xcconfig"; path = "Target Support Files/Pods-RSSDemo/Pods-RSSDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		84BED388C2136AE3F6247B0D /* Pods-RSSDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSDemo.release.xcconfig"; path = "Target Support Files/Pods-RSSDemo/Pods-RSSDemo.release.xcconfig"; sourceTree = "<group>"; };
 		AC41CC8123D2F2F6005E6A9A /* RSSDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC41CC8B23D2F2F7005E6A9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC41CC8E23D2F2F7005E6A9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC41CC9023D2F2F7005E6A9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AC41CCA023D2F81D005E6A9A /* MainControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainControllerViewModel.swift; sourceTree = "<group>"; };
+		AC41CCA023D2F81D005E6A9A /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		AC41CCA223D2F942005E6A9A /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		AC41CCAA23D300A4005E6A9A /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseViewModel.swift; path = RSSDemo/Support/BaseViewModel.swift; sourceTree = SOURCE_ROOT; };
 		AC41CCAE23D3021B005E6A9A /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -59,27 +101,58 @@
 		AC5C92B523D80F1C00878888 /* FeedRss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRss.swift; sourceTree = "<group>"; };
 		AC5C92B923D8124400878888 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		AC5C92BF23D8141D00878888 /* RssCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RssCell.swift; sourceTree = "<group>"; };
-		AC5C92C523D8157200878888 /* RssCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RssCellViewModel.swift; sourceTree = "<group>"; };
 		AC5C92C823D81A4400878888 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		AC5C92C923D81A4400878888 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		AC5C92CC23D81C6100878888 /* NavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDelegate.swift; sourceTree = "<group>"; };
 		AC5C92D023D8216D00878888 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
-		AC5C92D223D8218B00878888 /* DetailControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailControllerViewModel.swift; sourceTree = "<group>"; };
+		AC5C92D223D8218B00878888 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		AC5C92D623D8472E00878888 /* Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
 		AC5C92D923D8474200878888 /* BookmarkDAL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkDAL.swift; sourceTree = "<group>"; };
 		AC5C92DC23D847AA00878888 /* Realm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
+		AC5D98B724010C0400BF6949 /* BookmarksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewModel.swift; sourceTree = "<group>"; };
+		AC5D98B824010C0400BF6949 /* BookmarksController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksController.swift; sourceTree = "<group>"; };
+		AC5D98B924010C0C00BF6949 /* BookmarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkCell.swift; sourceTree = "<group>"; };
+		AC5D98BA24010C0C00BF6949 /* BookmarkCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkCellViewModel.swift; sourceTree = "<group>"; };
+		AC5D98C92401353100BF6949 /* GeneralListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralListView.swift; sourceTree = "<group>"; };
+		AC5D98CC240135C700BF6949 /* Behavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Behavior.swift; sourceTree = "<group>"; };
+		AC5D98CF2401364300BF6949 /* ListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDataSource.swift; sourceTree = "<group>"; };
+		AC5D98DE24014EF700BF6949 /* BookmarkViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewProtocol.swift; sourceTree = "<group>"; };
+		AC5D98E224023CAE00BF6949 /* DetailViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewProtocol.swift; sourceTree = "<group>"; };
+		AC5D98E424023FA100BF6949 /* RssModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssModelProtocol.swift; sourceTree = "<group>"; };
+		AC5D98E624024B0100BF6949 /* RssViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssViewModelProtocol.swift; sourceTree = "<group>"; };
+		AC5D98E9240250E500BF6949 /* DetailViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelProtocol.swift; sourceTree = "<group>"; };
+		AC5D98F2240255F700BF6949 /* MainViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelProtocol.swift; sourceTree = "<group>"; };
+		AC5D98F524025BFF00BF6949 /* MainViewPortocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPortocol.swift; sourceTree = "<group>"; };
+		AC5D98F824025F8900BF6949 /* MainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRepository.swift; sourceTree = "<group>"; };
+		AC5D98FA24025FF100BF6949 /* MainRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRepositoryProtocol.swift; sourceTree = "<group>"; };
+		AC5D98FD240284D300BF6949 /* RssCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssCellViewModel.swift; sourceTree = "<group>"; };
+		AC5D99092402A82100BF6949 /* RssCellViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssCellViewModelProtocol.swift; sourceTree = "<group>"; };
+		AC5D990D2403AD6400BF6949 /* RssCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssCellDelegate.swift; sourceTree = "<group>"; };
+		AC5D99112403B8EC00BF6949 /* CellSelectDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellSelectDelegate.swift; sourceTree = "<group>"; };
+		AC5D99142403DD5000BF6949 /* DataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRequest.swift; sourceTree = "<group>"; };
+		AC5D99172406354800BF6949 /* BaseViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModelProtocol.swift; sourceTree = "<group>"; };
+		AC5D9919240635CE00BF6949 /* BaseViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewProtocol.swift; sourceTree = "<group>"; };
+		AC5D991B2406385D00BF6949 /* BookmarkViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewModelProtocol.swift; sourceTree = "<group>"; };
+		AC5D992024063AAA00BF6949 /* BookmarkCellViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkCellViewModelProtocol.swift; sourceTree = "<group>"; };
+		AC5D992424065D0600BF6949 /* RequestModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestModelProtocol.swift; sourceTree = "<group>"; };
+		AC5D99262406606F00BF6949 /* ResponseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseType.swift; sourceTree = "<group>"; };
+		AC5D992A240666BD00BF6949 /* FeedItemJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemJson.swift; sourceTree = "<group>"; };
+		AC5D992B240666BD00BF6949 /* FeedJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedJson.swift; sourceTree = "<group>"; };
+		AC5D992C2406680F00BF6949 /* FeedChannelJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedChannelJson.swift; sourceTree = "<group>"; };
+		AC5D9931240675CA00BF6949 /* ParserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserProtocol.swift; sourceTree = "<group>"; };
+		AC5D99332406777900BF6949 /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
+		AC5D993524067A8200BF6949 /* XmlParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XmlParser.swift; sourceTree = "<group>"; };
 		AC8B38ED23D305C800E831E5 /* Errorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errorable.swift; sourceTree = "<group>"; };
 		AC8B38F123D30B9D00E831E5 /* Notifire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifire.swift; sourceTree = "<group>"; };
 		AC8B38F723D3231100E831E5 /* FeedChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedChannel.swift; sourceTree = "<group>"; };
 		E98A8A0A23D5FE65003BB2C1 /* APIAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIAction.swift; sourceTree = "<group>"; };
-		E98A8A1223D5FE65003BB2C1 /* BasicNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicNetworkService.swift; sourceTree = "<group>"; };
-		E98A8A1923D5FE65003BB2C1 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		E98A8A1223D5FE65003BB2C1 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		E98A8A1923D5FE65003BB2C1 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		E98A8A2C23D62C5F003BB2C1 /* FetchTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTarget.swift; sourceTree = "<group>"; };
 		E98A8A3923D74E5B003BB2C1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E98A8A3D23D74ED8003BB2C1 /* NibInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibInitializable.swift; sourceTree = "<group>"; };
 		E98A8A3E23D74ED8003BB2C1 /* BaseCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseCoordinator.swift; path = RSSDemo/Support/BaseCoordinator.swift; sourceTree = SOURCE_ROOT; };
 		E98A8A4123D77303003BB2C1 /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
-		E98A8A4723D7B7CD003BB2C1 /* SingleXmlResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleXmlResource.swift; sourceTree = "<group>"; };
+		E98A8A4723D7B7CD003BB2C1 /* ResponseResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseResource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +184,63 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		567DC743241D07DD0006D1D5 /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				AC5D98F1240254C800BF6949 /* Presenter */,
+				AC5D98F0240254C000BF6949 /* Repository */,
+				AC5D98EF240254BC00BF6949 /* View */,
+				AC5D98EE240254AE00BF6949 /* Protocols */,
+			);
+			path = Container;
+			sourceTree = "<group>";
+		};
+		567DC744241D07E60006D1D5 /* RssTable */ = {
+			isa = PBXGroup;
+			children = (
+				567DC745241D08070006D1D5 /* Presenter */,
+				567DC748241D08070006D1D5 /* Repository */,
+				567DC749241D08070006D1D5 /* View */,
+				567DC747241D08070006D1D5 /* Protocols */,
+			);
+			path = RssTable;
+			sourceTree = "<group>";
+		};
+		567DC745241D08070006D1D5 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				567DC746241D08070006D1D5 /* RssViewModel.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		567DC747241D08070006D1D5 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				567DC74D241D08B30006D1D5 /* RssTableViewModelProtocol.swift */,
+				567DC74E241D08B30006D1D5 /* RssViewPortocol.swift */,
+				567DC74C241D08B30006D1D5 /* RssRepositoryProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		567DC748241D08070006D1D5 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				567DC74F241D09090006D1D5 /* RssRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		567DC749241D08070006D1D5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AC5C92BE23D8141D00878888 /* RssCell */,
+				567DC74B241D082F0006D1D5 /* RssController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		AC41CC7823D2F2F6005E6A9A = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +262,7 @@
 		AC41CC8323D2F2F6005E6A9A /* RSSDemo */ = {
 			isa = PBXGroup;
 			children = (
+				AC5D98C72401350400BF6949 /* Demo */,
 				E98A8A3723D74E5B003BB2C1 /* App */,
 				E98A8A0823D5FE65003BB2C1 /* Network */,
 				E98A8A1823D5FE65003BB2C1 /* Protocols */,
@@ -146,12 +277,10 @@
 		AC41CC9723D2F48F005E6A9A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				AC5D99292406667800BF6949 /* JSON */,
+				AC5D99282406666E00BF6949 /* XML */,
 				AC5C92D423D846F900878888 /* Realm */,
 				AC41CCB023D303E4005E6A9A /* Enums */,
-				AC5C92B323D80E2F00878888 /* Feed.swift */,
-				AC5C92B523D80F1C00878888 /* FeedRss.swift */,
-				AC8B38F723D3231100E831E5 /* FeedChannel.swift */,
-				E98A8A4123D77303003BB2C1 /* FeedItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -159,7 +288,7 @@
 		AC41CC9823D2F4D9005E6A9A /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				AC5C92DE23D85A8F00878888 /* Bookmark */,
+				AC5C92DE23D85A8F00878888 /* Bookmarks */,
 				AC41CC9923D2F4F8005E6A9A /* Main */,
 				AC41CC9A23D2F50D005E6A9A /* Details */,
 			);
@@ -169,9 +298,8 @@
 		AC41CC9923D2F4F8005E6A9A /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				AC5C92BE23D8141D00878888 /* RssCell */,
-				AC41CCA223D2F942005E6A9A /* MainController.swift */,
-				AC41CCA023D2F81D005E6A9A /* MainControllerViewModel.swift */,
+				567DC744241D07E60006D1D5 /* RssTable */,
+				567DC743241D07DD0006D1D5 /* Container */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -179,8 +307,9 @@
 		AC41CC9A23D2F50D005E6A9A /* Details */ = {
 			isa = PBXGroup;
 			children = (
-				AC5C92D023D8216D00878888 /* DetailController.swift */,
-				AC5C92D223D8218B00878888 /* DetailControllerViewModel.swift */,
+				AC5D98E8240250CA00BF6949 /* View */,
+				AC5D98E12401638D00BF6949 /* Presenter */,
+				AC5D98E02401638300BF6949 /* Protocols */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -206,8 +335,9 @@
 		AC5C92BE23D8141D00878888 /* RssCell */ = {
 			isa = PBXGroup;
 			children = (
-				AC5C92BF23D8141D00878888 /* RssCell.swift */,
-				AC5C92C523D8157200878888 /* RssCellViewModel.swift */,
+				AC5D99082402A7C900BF6949 /* Protocol */,
+				AC5D99072402A7BC00BF6949 /* View */,
+				AC5D99062402A7AD00BF6949 /* Presenter */,
 			);
 			path = RssCell;
 			sourceTree = "<group>";
@@ -237,16 +367,293 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		AC5C92DE23D85A8F00878888 /* Bookmark */ = {
+		AC5C92DE23D85A8F00878888 /* Bookmarks */ = {
+			isa = PBXGroup;
+			children = (
+				AC5D98D824014C9800BF6949 /* Protocols */,
+				AC5D98DD24014DA300BF6949 /* Presenter */,
+				AC5D98DA24014D0200BF6949 /* View */,
+			);
+			path = Bookmarks;
+			sourceTree = "<group>";
+		};
+		AC5D98B624010C0400BF6949 /* BookmarkCell */ = {
+			isa = PBXGroup;
+			children = (
+				AC5D991E24063A8B00BF6949 /* Protocol */,
+				AC5D991F24063A8B00BF6949 /* View */,
+				AC5D991D24063A8B00BF6949 /* Presenter */,
+			);
+			path = BookmarkCell;
+			sourceTree = "<group>";
+		};
+		AC5D98C72401350400BF6949 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				AC5D98D124013A2200BF6949 /* Module A */,
+				AC5D98C82401351900BF6949 /* List */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		AC5D98C82401351900BF6949 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				AC5D98CE2401361D00BF6949 /* DataSource */,
+				AC5D98CB240135AC00BF6949 /* Behavior */,
+				AC5D98C92401353100BF6949 /* GeneralListView.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		AC5D98CB240135AC00BF6949 /* Behavior */ = {
+			isa = PBXGroup;
+			children = (
+				AC5D98CC240135C700BF6949 /* Behavior.swift */,
+			);
+			path = Behavior;
+			sourceTree = "<group>";
+		};
+		AC5D98CE2401361D00BF6949 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				AC5D98CF2401364300BF6949 /* ListDataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		AC5D98D124013A2200BF6949 /* Module A */ = {
+			isa = PBXGroup;
+			children = (
+				AC5D98D524013A3E00BF6949 /* Protocols */,
+				AC5D98D424013A3600BF6949 /* Repository */,
+				AC5D98D324013A3100BF6949 /* View */,
+				AC5D98D224013A2A00BF6949 /* Presenter */,
+			);
+			path = "Module A";
+			sourceTree = "<group>";
+		};
+		AC5D98D224013A2A00BF6949 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Bookmark;
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		AC5D98D324013A3100BF6949 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AC5D98D724013A6900BF6949 /* Cells */,
+				AC5D98D624013A6200BF6949 /* Behavior */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AC5D98D424013A3600BF6949 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		AC5D98D524013A3E00BF6949 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		AC5D98D624013A6200BF6949 /* Behavior */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Behavior;
+			sourceTree = "<group>";
+		};
+		AC5D98D724013A6900BF6949 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		AC5D98D824014C9800BF6949 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				AC5D98DE24014EF700BF6949 /* BookmarkViewProtocol.swift */,
+				AC5D991B2406385D00BF6949 /* BookmarkViewModelProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		AC5D98DA24014D0200BF6949 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AC5D98B624010C0400BF6949 /* BookmarkCell */,
+				AC5D98B824010C0400BF6949 /* BookmarksController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AC5D98DD24014DA300BF6949 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				AC5D98B724010C0400BF6949 /* BookmarksViewModel.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		AC5D98E02401638300BF6949 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				AC5D98E224023CAE00BF6949 /* DetailViewProtocol.swift */,
+				AC5D98E9240250E500BF6949 /* DetailViewModelProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		AC5D98E12401638D00BF6949 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				AC5C92D223D8218B00878888 /* DetailViewModel.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		AC5D98E8240250CA00BF6949 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AC5C92D023D8216D00878888 /* DetailController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AC5D98EE240254AE00BF6949 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				AC5D98F2240255F700BF6949 /* MainViewModelProtocol.swift */,
+				AC5D98F524025BFF00BF6949 /* MainViewPortocol.swift */,
+				AC5D98FA24025FF100BF6949 /* MainRepositoryProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		AC5D98EF240254BC00BF6949 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AC41CCA223D2F942005E6A9A /* MainController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AC5D98F0240254C000BF6949 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				AC5D98F824025F8900BF6949 /* MainRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		AC5D98F1240254C800BF6949 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				AC41CCA023D2F81D005E6A9A /* MainViewModel.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		AC5D99062402A7AD00BF6949 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				AC5D98FD240284D300BF6949 /* RssCellViewModel.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		AC5D99072402A7BC00BF6949 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AC5C92BF23D8141D00878888 /* RssCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AC5D99082402A7C900BF6949 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				AC5D99092402A82100BF6949 /* RssCellViewModelProtocol.swift */,
+				AC5D990D2403AD6400BF6949 /* RssCellDelegate.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		AC5D991D24063A8B00BF6949 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				AC5D98BA24010C0C00BF6949 /* BookmarkCellViewModel.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		AC5D991E24063A8B00BF6949 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				AC5D992024063AAA00BF6949 /* BookmarkCellViewModelProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		AC5D991F24063A8B00BF6949 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AC5D98B924010C0C00BF6949 /* BookmarkCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AC5D99232406426400BF6949 /* Rss */ = {
+			isa = PBXGroup;
+			children = (
+				AC5D98E624024B0100BF6949 /* RssViewModelProtocol.swift */,
+				AC5D98E424023FA100BF6949 /* RssModelProtocol.swift */,
+			);
+			path = Rss;
+			sourceTree = "<group>";
+		};
+		AC5D99282406666E00BF6949 /* XML */ = {
+			isa = PBXGroup;
+			children = (
+				AC5C92B323D80E2F00878888 /* Feed.swift */,
+				AC5C92B523D80F1C00878888 /* FeedRss.swift */,
+				AC8B38F723D3231100E831E5 /* FeedChannel.swift */,
+				E98A8A4123D77303003BB2C1 /* FeedItem.swift */,
+			);
+			path = XML;
+			sourceTree = "<group>";
+		};
+		AC5D99292406667800BF6949 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				AC5D992B240666BD00BF6949 /* FeedJson.swift */,
+				AC5D992C2406680F00BF6949 /* FeedChannelJson.swift */,
+				AC5D992A240666BD00BF6949 /* FeedItemJson.swift */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		AC5D9930240675A700BF6949 /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				AC5D993524067A8200BF6949 /* XmlParser.swift */,
+				AC5D99332406777900BF6949 /* JsonParser.swift */,
+			);
+			path = Parsers;
 			sourceTree = "<group>";
 		};
 		E98A8A0823D5FE65003BB2C1 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				AC5D9930240675A700BF6949 /* Parsers */,
 				E98A8A0923D5FE65003BB2C1 /* Actions */,
 				E98A8A0D23D5FE65003BB2C1 /* Resource */,
 				E98A8A1023D5FE65003BB2C1 /* Services */,
@@ -259,6 +666,7 @@
 			children = (
 				E98A8A0A23D5FE65003BB2C1 /* APIAction.swift */,
 				AC5C92B023D80D4F00878888 /* RssAction.swift */,
+				AC5D99262406606F00BF6949 /* ResponseType.swift */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -266,7 +674,7 @@
 		E98A8A0D23D5FE65003BB2C1 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				E98A8A4723D7B7CD003BB2C1 /* SingleXmlResource.swift */,
+				E98A8A4723D7B7CD003BB2C1 /* ResponseResource.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -274,7 +682,7 @@
 		E98A8A1023D5FE65003BB2C1 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				E98A8A1223D5FE65003BB2C1 /* BasicNetworkService.swift */,
+				E98A8A1223D5FE65003BB2C1 /* NetworkService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -289,6 +697,7 @@
 				AC41CCAE23D3021B005E6A9A /* Message.swift */,
 				AC8B38F123D30B9D00E831E5 /* Notifire.swift */,
 				AC5C92B923D8124400878888 /* Utility.swift */,
+				AC5D99142403DD5000BF6949 /* DataRequest.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -296,8 +705,13 @@
 		E98A8A1823D5FE65003BB2C1 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				AC5C92CC23D81C6100878888 /* NavigationDelegate.swift */,
-				E98A8A1923D5FE65003BB2C1 /* NetworkService.swift */,
+				AC5D99232406426400BF6949 /* Rss */,
+				E98A8A1923D5FE65003BB2C1 /* NetworkServiceProtocol.swift */,
+				AC5D99112403B8EC00BF6949 /* CellSelectDelegate.swift */,
+				AC5D99172406354800BF6949 /* BaseViewModelProtocol.swift */,
+				AC5D9919240635CE00BF6949 /* BaseViewProtocol.swift */,
+				AC5D992424065D0600BF6949 /* RequestModelProtocol.swift */,
+				AC5D9931240675CA00BF6949 /* ParserProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -437,34 +851,70 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC5C92B423D80E2F00878888 /* Feed.swift in Sources */,
-				AC41CCA323D2F942005E6A9A /* MainController.swift in Sources */,
+				AC5D98EA240250E500BF6949 /* DetailViewModelProtocol.swift in Sources */,
+				AC5D990E2403AD6400BF6949 /* RssCellDelegate.swift in Sources */,
 				E98A8A3B23D74E5B003BB2C1 /* AppDelegate.swift in Sources */,
-				E98A8A2723D5FE65003BB2C1 /* NetworkService.swift in Sources */,
-				AC5C92C223D8141D00878888 /* RssCell.swift in Sources */,
-				E98A8A4823D7B7CD003BB2C1 /* SingleXmlResource.swift in Sources */,
+				AC5D98EC240251D000BF6949 /* DetailController.swift in Sources */,
+				567DC759241D22CE0006D1D5 /* MainViewModel.swift in Sources */,
+				AC5D990324029D5A00BF6949 /* Behavior.swift in Sources */,
+				E98A8A2723D5FE65003BB2C1 /* NetworkServiceProtocol.swift in Sources */,
+				E98A8A4823D7B7CD003BB2C1 /* ResponseResource.swift in Sources */,
+				567DC753241D09430006D1D5 /* RssTableViewModelProtocol.swift in Sources */,
 				AC5C92B623D80F1C00878888 /* FeedRss.swift in Sources */,
+				AC5D992124063AAA00BF6949 /* BookmarkCellViewModelProtocol.swift in Sources */,
+				AC5D98C524010D5A00BF6949 /* BookmarksController.swift in Sources */,
+				AC5D99372406946200BF6949 /* MainRepository.swift in Sources */,
+				AC5D990C2402A90300BF6949 /* RssCellViewModel.swift in Sources */,
+				AC5D991A240635CE00BF6949 /* BaseViewProtocol.swift in Sources */,
+				AC5D98C324010D5200BF6949 /* BookmarkCell.swift in Sources */,
+				AC5D990A2402A82100BF6949 /* RssCellViewModelProtocol.swift in Sources */,
+				AC5D99122403B8EC00BF6949 /* CellSelectDelegate.swift in Sources */,
 				E98A8A4223D77303003BB2C1 /* FeedItem.swift in Sources */,
-				AC5C92D123D8216D00878888 /* DetailController.swift in Sources */,
+				567DC754241D09430006D1D5 /* RssViewPortocol.swift in Sources */,
+				AC5D990224029D5A00BF6949 /* ListDataSource.swift in Sources */,
+				AC5D98FB24025FF100BF6949 /* MainRepositoryProtocol.swift in Sources */,
+				AC5D99272406606F00BF6949 /* ResponseType.swift in Sources */,
 				AC5C92DA23D8474200878888 /* BookmarkDAL.swift in Sources */,
+				AC5D99152403DD5000BF6949 /* DataRequest.swift in Sources */,
 				AC41CCB223D30420005E6A9A /* CustomError.swift in Sources */,
+				AC5D98F3240255F700BF6949 /* MainViewModelProtocol.swift in Sources */,
+				AC5D9932240675CA00BF6949 /* ParserProtocol.swift in Sources */,
 				AC5C92BA23D8124400878888 /* Utility.swift in Sources */,
+				AC5D992D240669D200BF6949 /* FeedJson.swift in Sources */,
 				AC41CCAB23D300A4005E6A9A /* BaseViewModel.swift in Sources */,
-				AC5C92CF23D81CF800878888 /* RssCellViewModel.swift in Sources */,
+				567DC75A241D23240006D1D5 /* MainViewPortocol.swift in Sources */,
+				AC5D99342406777900BF6949 /* JsonParser.swift in Sources */,
 				AC8B38F823D3231100E831E5 /* FeedChannel.swift in Sources */,
+				AC5D98C624010D5D00BF6949 /* BookmarksViewModel.swift in Sources */,
+				AC5D98E524023FA100BF6949 /* RssModelProtocol.swift in Sources */,
+				AC5D99162406315500BF6949 /* BookmarkViewProtocol.swift in Sources */,
+				AC5D98E724024B0100BF6949 /* RssViewModelProtocol.swift in Sources */,
+				567DC755241D09430006D1D5 /* RssRepositoryProtocol.swift in Sources */,
+				AC5D98E324023CAE00BF6949 /* DetailViewProtocol.swift in Sources */,
 				AC8B38EE23D305C800E831E5 /* Errorable.swift in Sources */,
+				567DC757241D0D910006D1D5 /* RssViewModel.swift in Sources */,
 				AC5C92DD23D847AA00878888 /* Realm.swift in Sources */,
-				AC5C92D323D8218B00878888 /* DetailControllerViewModel.swift in Sources */,
+				AC5D98ED240251D400BF6949 /* DetailViewModel.swift in Sources */,
+				AC5D99182406354800BF6949 /* BaseViewModelProtocol.swift in Sources */,
 				AC41CCAF23D3021B005E6A9A /* Message.swift in Sources */,
 				E98A8A1C23D5FE65003BB2C1 /* APIAction.swift in Sources */,
+				AC5D992F240669D200BF6949 /* FeedItemJson.swift in Sources */,
 				E98A8A3F23D74ED8003BB2C1 /* NibInitializable.swift in Sources */,
+				AC5D992E240669D200BF6949 /* FeedChannelJson.swift in Sources */,
 				AC5C92B123D80D4F00878888 /* RssAction.swift in Sources */,
 				AC8B38F223D30B9D00E831E5 /* Notifire.swift in Sources */,
-				AC5C92CD23D81C6100878888 /* NavigationDelegate.swift in Sources */,
+				AC5D991C2406385D00BF6949 /* BookmarkViewModelProtocol.swift in Sources */,
+				AC5D990B2402A88700BF6949 /* RssCell.swift in Sources */,
+				AC5D992524065D0600BF6949 /* RequestModelProtocol.swift in Sources */,
+				567DC756241D0D8E0006D1D5 /* RssRepository.swift in Sources */,
+				567DC752241D09430006D1D5 /* RssController.swift in Sources */,
 				AC5C92B723D8108B00878888 /* FetchTarget.swift in Sources */,
+				AC5D993624067A8200BF6949 /* XmlParser.swift in Sources */,
 				E98A8A4023D74ED8003BB2C1 /* BaseCoordinator.swift in Sources */,
+				AC5D992224063D4000BF6949 /* BookmarkCellViewModel.swift in Sources */,
 				AC5C92D723D8472E00878888 /* Bookmark.swift in Sources */,
-				AC41CCA123D2F81D005E6A9A /* MainControllerViewModel.swift in Sources */,
-				E98A8A2223D5FE65003BB2C1 /* BasicNetworkService.swift in Sources */,
+				AC5D98F724025C4700BF6949 /* MainController.swift in Sources */,
+				E98A8A2223D5FE65003BB2C1 /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

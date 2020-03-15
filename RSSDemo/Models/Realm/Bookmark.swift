@@ -14,7 +14,7 @@ class Bookmark: Object {
     @objc dynamic  var link: String?
     @objc dynamic  var des: String?
     @objc dynamic  var pubDate: String?
-    dynamic  var category: List<String>?
+    //dynamic  var category: List<String>?
    
 //    override static func primaryKey() -> String? {
 //        return "id"
@@ -33,13 +33,19 @@ class Bookmark: Object {
         self.des = des
         self.pubDate = pubDate
         
-        if let catrgories = category {
-            self.category = List<String>()
-            self.category?.append(objectsIn: catrgories)
-        }
+//        if let catrgories = category {
+//            self.category = List<String>()
+//            self.category?.append(objectsIn: catrgories)
+//        }
         
     }
     
     
+}
+
+extension Bookmark {
+    func makeRssModel() -> RssModelProtocol {
+        return FeedItem(title: title ?? "", link: link ?? "", description: des ?? "", pubDate: pubDate ?? "", category: [])
+    }
 }
 

@@ -8,8 +8,11 @@
 
 
 import RealmSwift
+import RxSwift
+import RxCocoa
 
 typealias dalCompletion = () -> Void
+typealias dalCompletionWith = (_ model: RssModelProtocol) -> Void
 
 class BookmarkDAL
 {
@@ -19,7 +22,7 @@ class BookmarkDAL
     
     init()
     {
-        let config = Realm.Configuration(schemaVersion: 1)
+        let config = Realm.Configuration(schemaVersion: 3)
         self.realm = try? Realm(configuration: config)
     }
 
@@ -35,6 +38,21 @@ class BookmarkDAL
         }
     }
     
+    func removeBy(title: String, complete : dalCompletionWith? ) {
+        try! realm.safeWrite {
+            guard let item = fetchBy(title: title) else {
+                return
+            }
+            complete?(item.makeRssModel())
+            realm.delete(item)
+        }
+    }
+    
+    
+    func fetchBy(title: String) -> Bookmark? {
+        return realm.objects(Bookmark.self).filter(NSPredicate(format: "title == %@",title)).first
+    }
+    
     func fetch(id: String) -> Bookmark?
     {
         guard let Bookmark = realm.object(ofType: Bookmark.self, forPrimaryKey: id) else {
@@ -44,29 +62,23 @@ class BookmarkDAL
         return Bookmark
     }
     
-    func fetchAll() -> [Bookmark]? {
-
-        return realm.objects(Bookmark.self).toArray()
+    func fetchAll() -> Observable<[Bookmark]> {
+        return Observable.just(realm.objects(Bookmark.self).toArray())
+        
+        
     }
     
-    func insertBookmark(feed: FeedItem, completion: dalCompletion?) {
+    func insertBookmark(model: RssModelProtocol, completion: dalCompletionWith?) {
        
         try! realm.safeWrite {
             let bookmark = Bookmark()
                
-            bookmark.title = feed.title
-            bookmark.link = feed.link
-            bookmark.des = feed.description
-            bookmark.pubDate = feed.pubDate
-            
-            
-            bookmark.category = List<String>()
-            bookmark.category?.append(objectsIn: feed.category)
-            
-            
+            bookmark.title = model.title
+            bookmark.link = model.link
+            bookmark.des = model.description
             
             realm.add(bookmark)
-            completion?()
+            completion?(model)
         }
     }
 

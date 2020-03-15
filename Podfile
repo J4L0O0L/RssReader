@@ -8,12 +8,13 @@ target 'RSSDemo' do
   # Pods for RSSDemo
   pod 'Alamofire'
   pod 'RxAlamofire'
-  pod 'RxSwift', '~> 4'
-  pod 'RxCocoa', '~> 4'
+  pod 'RealmSwift'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'RxRealm'
   pod 'Swinject'
   pod 'SnapKit'
   pod 'SWXMLHash'
   pod 'LNRSimpleNotifications'
   pod 'NVActivityIndicatorView'
-  pod 'RealmSwift'
 end

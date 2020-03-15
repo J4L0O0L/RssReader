@@ -19,17 +19,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let container = Container() { container in
         // Services
-        container.register(NetworkService.self) { _ in BasicNetworkService() }
+        container.register(NetworkServiceProtocol.self) { _ in return NetworkService() }
         
         // View models
-        container.register(MainControllerViewModelType.self) { r in
-            let viewModel = MainControllerViewModel(r.resolve(NetworkService.self)!)
+        container.register(MainViewModelProtocol.self) { r in
+            let viewModel = MainViewModel(networkservice: r.resolve(NetworkServiceProtocol.self)!)
             return viewModel
         }.inObjectScope(.container)
         
         // Views
         container.register(MainController.self) { r in
-            let vc = MainController(r.resolve(MainControllerViewModelType.self)!)
+            let vc = MainController(r.resolve(MainViewModelProtocol.self)!)
             return vc
         }
         

@@ -9,22 +9,22 @@
 import Alamofire
 
 protocol APIAction: URLRequestConvertible {
-  var method: HTTPMethod { get }
-  var path: String { get }
-  var actionParameters: [String: Any] { get }
-  var baseURL: String { get }
-  var authHeader: [String: String] { get }
-  var encoding: ParameterEncoding { get }
+    var method: HTTPMethod { get }
+    var path: String { get }
+    var actionParameters: [String: Any] { get }
+    var baseURL: String { get }
+    var authHeader: [String: String] { get }
+    var encoding: ParameterEncoding { get }
 }
 
 extension APIAction {
-  var actionParameters: [String : Any] {
-    return [:]
-  }
-  var authHeader: [String : String] {
-    return [:]
-  }
-  var baseURL: String {
-    return "https://rss.itunes.apple.com/api/v1"
-  }
+    var actionParameters: [String : Any] {
+        return [:]
+    }
+    var authHeader: [String : String] {
+        return [:]
+    }
+    var baseURL: String {
+        return "https://rss.itunes.apple.com/api/v1"
+    }
 }
